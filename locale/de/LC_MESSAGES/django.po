@@ -1,14 +1,14 @@
-# fiëé cérébrale - temporale.
-# Copyright (C) 2010 fiëé visuëlle
-# This file is distributed under the same license as the PACKAGE package.
-# Henning Hraban Ramm <hraba@fiee.net>, 2010.
+# fiëé témporâle.
+# Copyright (C) 2011 fiëé visuëlle
+# This file is distributed under the same license as the temporale package.
+# Henning Hraban Ramm <hraba@fiee.net>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: django-temporale\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-24 17:57+0100\n"
-"PO-Revision-Date: 2011-02-24 17:58+0100\n"
+"PO-Revision-Date: 2011-03-09 19:48+0100\n"
 "Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
 "Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
 "Language: \n"

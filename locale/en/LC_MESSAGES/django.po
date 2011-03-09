@@ -1,14 +1,14 @@
-# fiëé cérébrale - temporale.
-# Copyright (C) 2010 fiëé visuëlle
-# This file is distributed under the same license as the PACKAGE package.
-# Henning Hraban Ramm <hraba@fiee.net>, 2010.
+# fiëé témporâle.
+# Copyright (C) 2011 fiëé visuëlle
+# This file is distributed under the same license as the temporale package.
+# Henning Hraban Ramm <hraba@fiee.net>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: django-temporale\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-24 17:58+0100\n"
-"PO-Revision-Date: 2011-02-08 14:32+0100\n"
+"PO-Revision-Date: 2011-03-09 19:48+0100\n"
 "Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
 "Language-Team: David A. Krauth <dakrauth@gmail.com>\n"
 "Language: \n"
@@ -92,7 +92,8 @@ msgstr "March"
 msgid "April"
 msgstr "April"
 
-#: forms.py:44 forms.py:59
+#: forms.py:44
+#: forms.py:59
 msgid "May"
 msgstr "May"
 
@@ -216,11 +217,28 @@ msgstr "Until date"
 msgid "Date"
 msgstr "Date"
 
-#: forms.py:200 forms.py:206 forms.py:212 forms.py:222 forms.py:230
-#: forms.py:239 forms.py:246 forms.py:254 forms.py:262 forms.py:272
-#: forms.py:277 forms.py:281 forms.py:286 forms.py:294 forms.py:297
-#: forms.py:299 forms.py:301 forms.py:420 forms.py:422 models.py:147
-#: models.py:148 models.py:149
+#: forms.py:200
+#: forms.py:206
+#: forms.py:212
+#: forms.py:222
+#: forms.py:230
+#: forms.py:239
+#: forms.py:246
+#: forms.py:254
+#: forms.py:262
+#: forms.py:272
+#: forms.py:277
+#: forms.py:281
+#: forms.py:286
+#: forms.py:294
+#: forms.py:297
+#: forms.py:299
+#: forms.py:301
+#: forms.py:420
+#: forms.py:422
+#: models.py:147
+#: models.py:148
+#: models.py:149
 msgid "-"
 msgstr "-"
 
@@ -232,7 +250,8 @@ msgstr "Start time"
 msgid "End time"
 msgstr "End time"
 
-#: forms.py:218 templates/temporale/event_detail.html:19
+#: forms.py:218
+#: templates/temporale/event_detail.html:19
 msgid "Occurrences"
 msgstr "Occurrences"
 
@@ -244,7 +263,8 @@ msgstr "Total Occurrences"
 msgid "until"
 msgstr "until"
 
-#: forms.py:242 templates/temporale/recurring_form_part.html:57
+#: forms.py:242
+#: templates/temporale/recurring_form_part.html:57
 msgid "Frequency"
 msgstr "Frequency"
 
@@ -277,11 +297,13 @@ msgstr "Yearly options"
 msgid "Unknown interval rule %s"
 msgstr "Unknown interval rule %s"
 
-#: forms.py:419 models.py:147
+#: forms.py:419
+#: models.py:147
 msgid "start time"
 msgstr "start time"
 
-#: forms.py:421 models.py:148
+#: forms.py:421
+#: models.py:148
 msgid "end time"
 msgstr "end time"
 
@@ -301,7 +323,8 @@ msgstr "label"
 msgid "Visible name of the event type"
 msgstr "Visible name of the event type"
 
-#: models.py:27 models.py:40
+#: models.py:27
+#: models.py:40
 msgid "event type"
 msgstr "event type"
 
@@ -345,7 +368,8 @@ msgstr "object id"
 msgid "ID of the related object"
 msgstr "ID of the related object"
 
-#: models.py:47 models.py:149
+#: models.py:47
+#: models.py:149
 msgid "event"
 msgstr "event"
 
@@ -354,9 +378,8 @@ msgid "events"
 msgstr "events"
 
 #: models.py:51
-#, fuzzy
 msgid "Can view event"
-msgstr "Event"
+msgstr "Can view event"
 
 #: models.py:154
 msgid "occurrence"
@@ -367,9 +390,8 @@ msgid "occurrences"
 msgstr "occurrences"
 
 #: models.py:158
-#, fuzzy
 msgid "Can view occurrence"
-msgstr "Event Occurrence"
+msgstr "Can view occurrence"
 
 #: models.py:289
 msgid "Generic event"
@@ -387,7 +409,8 @@ msgstr "English"
 msgid "whole day"
 msgstr "whole day"
 
-#: templates/temporale/add_event.html:2 templates/temporale/add_event.html:4
+#: templates/temporale/add_event.html:2
+#: templates/temporale/add_event.html:4
 msgid "Add Event"
 msgstr "Add Event"
 
@@ -414,7 +437,8 @@ msgstr "Calendar"
 msgid "Sorry, you’re not cleared for the <em>calendar</em> module!"
 msgstr "Sorry, you’re not cleared for the <em>calendar</em> module!"
 
-#: templates/temporale/daily_view.html:2 templates/temporale/daily_view.html:4
+#: templates/temporale/daily_view.html:2
+#: templates/temporale/daily_view.html:4
 msgid "Daily View"
 msgstr "Daily View"
 
@@ -462,7 +486,8 @@ msgstr "Add Occurrences"
 msgid "Add"
 msgstr "Add"
 
-#: templates/temporale/event_list.html:2 templates/temporale/event_list.html:4
+#: templates/temporale/event_list.html:2
+#: templates/temporale/event_list.html:4
 msgid "All Events"
 msgstr "All Events"
 
@@ -595,3 +620,4 @@ msgstr "End"
 #, python-format
 msgid "<p>No events occurring in %(year)s</p>"
 msgstr "<p>No events occurring in %(year)s</p>"
+
