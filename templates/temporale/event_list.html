@@ -1,0 +1,14 @@
+{% extends "temporale/base.html" %}{% load i18n %}
+{% block title %}{% trans "All Events" %}{% endblock %}
+{% block calendar_content %}
+    <h2>{% trans "All Events" %}</h2>
+    {% if events %}
+    <ul class="eventlist">
+        {% for e in events %}
+        <li><a href="{{ e.get_absolute_url }}">{{ e }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>{% trans "No events found." %}</p>
+    {% endif %}
+{% endblock %}

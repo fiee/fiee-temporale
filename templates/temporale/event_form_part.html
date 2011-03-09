@@ -1,0 +1,27 @@
+{% load i18n %}
+<p class="field_wrapper">
+  <label for="id_event_type">{% trans event_form.event_type.label %}:</label>
+  <span class="field_help">{% trans event_form.event_type.help_text %}</span>
+  <span class="field">{{ event_form.event_type }}</span>
+  {% if event_form.event_type.errors %}{% for error in event_form.event_type.errors %}
+    <span class="field_errors">{{ error }} </span>
+  {% endfor %}{% endif %}
+</p>
+
+<p class="field_wrapper">
+  <label for="id_title">{% trans event_form.title.label %}:</label>
+  <span class="field_help">{% trans event_form.title.help_text %}</span>
+  <span class="field">{{ event_form.title }}</span>
+  {% if event_form.title.errors %}{% for error in event_form.title.errors %}
+    <span class="field_errors">{{ error }} </span>
+  {% endfor %}{% endif %}
+</p>
+
+<p class="field_wrapper">
+  <label for="id_description">{% trans event_form.description.label %}:</label>
+  <span class="field_help">{% trans event_form.description.help_text %}</span>
+  <span class="field">{{ event_form.description }}</span>
+  {% if event_form.description.errors %}{% for error in event_form.description.errors %}
+    <span class="field_errors">{{ error }} </span>
+  {% endfor %}{% endif %}
+</p>

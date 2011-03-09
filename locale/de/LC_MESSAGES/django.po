@@ -1,0 +1,652 @@
+# fiëé cérébrale - temporale.
+# Copyright (C) 2010 fiëé visuëlle
+# This file is distributed under the same license as the PACKAGE package.
+# Henning Hraban Ramm <hraba@fiee.net>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: django-temporale\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-24 17:57+0100\n"
+"PO-Revision-Date: 2011-02-24 17:58+0100\n"
+"Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
+"Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: forms.py:20
+msgid "Sun"
+msgstr "So"
+
+#: forms.py:21
+msgid "Mon"
+msgstr "Mo"
+
+#: forms.py:22
+msgid "Tue"
+msgstr "Di"
+
+#: forms.py:23
+msgid "Wed"
+msgstr "Mi"
+
+#: forms.py:24
+msgid "Thu"
+msgstr "Do"
+
+#: forms.py:25
+msgid "Fri"
+msgstr "Fr"
+
+#: forms.py:26
+msgid "Sat"
+msgstr "Sa"
+
+#: forms.py:30
+msgid "Sunday"
+msgstr "Sonntag"
+
+#: forms.py:31
+msgid "Monday"
+msgstr "Montag"
+
+#: forms.py:32
+msgid "Tuesday"
+msgstr "Dienstag"
+
+#: forms.py:33
+msgid "Wednesday"
+msgstr "Mittwoch"
+
+#: forms.py:34
+msgid "Thursday"
+msgstr "Donnerstag"
+
+#: forms.py:35
+msgid "Friday"
+msgstr "Freitag"
+
+#: forms.py:36
+msgid "Saturday"
+msgstr "Samstag"
+
+#: forms.py:40
+msgid "January"
+msgstr "Januar"
+
+#: forms.py:41
+msgid "February"
+msgstr "Februar"
+
+#: forms.py:42
+msgid "March"
+msgstr "März"
+
+#: forms.py:43
+msgid "April"
+msgstr "April"
+
+#: forms.py:44
+#: forms.py:59
+msgid "May"
+msgstr "Mai"
+
+#: forms.py:45
+msgid "June"
+msgstr "Juni"
+
+#: forms.py:46
+msgid "July"
+msgstr "Juli"
+
+#: forms.py:47
+msgid "August"
+msgstr "August"
+
+#: forms.py:48
+msgid "September"
+msgstr "September"
+
+#: forms.py:49
+msgid "October"
+msgstr "Oktober"
+
+#: forms.py:50
+msgid "November"
+msgstr "November"
+
+#: forms.py:51
+msgid "December"
+msgstr "Dezember"
+
+#: forms.py:55
+msgid "Jan"
+msgstr "Jan"
+
+#: forms.py:56
+msgid "Feb"
+msgstr "Feb"
+
+#: forms.py:57
+msgid "Mar"
+msgstr "Mär"
+
+#: forms.py:58
+msgid "Apr"
+msgstr "Apr"
+
+#: forms.py:60
+msgid "Jun"
+msgstr "Jun"
+
+#: forms.py:61
+msgid "Jul"
+msgstr "Jul"
+
+#: forms.py:62
+msgid "Aug"
+msgstr "Aug"
+
+#: forms.py:63
+msgid "Sep"
+msgstr "Sep"
+
+#: forms.py:64
+msgid "Oct"
+msgstr "Okt"
+
+#: forms.py:65
+msgid "Nov"
+msgstr "Nov"
+
+#: forms.py:66
+msgid "Dec"
+msgstr "Dez"
+
+#: forms.py:71
+msgid "first"
+msgstr "erster"
+
+#: forms.py:72
+msgid "second"
+msgstr "zweiter"
+
+#: forms.py:73
+msgid "third"
+msgstr "dritter"
+
+#: forms.py:74
+msgid "fourth"
+msgstr "vierter"
+
+#: forms.py:75
+msgid "last"
+msgstr "letzter"
+
+#: forms.py:79
+msgid "Day(s)"
+msgstr "Tag(e)"
+
+#: forms.py:80
+msgid "Week(s)"
+msgstr "Woche(n)"
+
+#: forms.py:81
+msgid "Month(s)"
+msgstr "Monat(e)"
+
+#: forms.py:82
+msgid "Year(s)"
+msgstr "Jahr(e)"
+
+#: forms.py:86
+msgid "By count"
+msgstr "Nach Anzahl"
+
+#: forms.py:87
+msgid "Until date"
+msgstr "Bis zum"
+
+#: forms.py:195
+msgid "Date"
+msgstr "Datum"
+
+#: forms.py:200
+#: forms.py:206
+#: forms.py:212
+#: forms.py:222
+#: forms.py:230
+#: forms.py:239
+#: forms.py:246
+#: forms.py:254
+#: forms.py:262
+#: forms.py:272
+#: forms.py:277
+#: forms.py:281
+#: forms.py:286
+#: forms.py:294
+#: forms.py:297
+#: forms.py:299
+#: forms.py:301
+#: forms.py:420
+#: forms.py:422
+#: models.py:147
+#: models.py:148
+#: models.py:149
+msgid "-"
+msgstr "-"
+
+#: forms.py:203
+msgid "Start time"
+msgstr "Anfangszeit"
+
+#: forms.py:209
+msgid "End time"
+msgstr "Endzeit"
+
+#: forms.py:218
+#: templates/temporale/event_detail.html:19
+msgid "Occurrences"
+msgstr "Vorkommen"
+
+#: forms.py:225
+msgid "Total Occurrences"
+msgstr "Vorkommen gesamt"
+
+#: forms.py:233
+msgid "until"
+msgstr "bis"
+
+#: forms.py:242
+#: templates/temporale/recurring_form_part.html:57
+msgid "Frequency"
+msgstr "Frequenz"
+
+#: forms.py:249
+msgid "Interval"
+msgstr "Intervall"
+
+#: forms.py:259
+msgid "Weekly options"
+msgstr "Wöchentliche Optionen"
+
+#: forms.py:266
+msgid "On the"
+msgstr "Am"
+
+#: forms.py:266
+msgid "Each:"
+msgstr "Jeden:"
+
+#: forms.py:269
+msgid "Monthly options"
+msgstr "Monatliche Optionen"
+
+#: forms.py:291
+msgid "Yearly options"
+msgstr "Jährliche Optionen"
+
+#: forms.py:391
+#, python-format
+msgid "Unknown interval rule %s"
+msgstr "Unbekannte Intervall-Regel %s"
+
+#: forms.py:419
+#: models.py:147
+msgid "start time"
+msgstr "Anfangszeit"
+
+#: forms.py:421
+#: models.py:148
+msgid "end time"
+msgstr "Endzeit"
+
+#: models.py:23
+msgid "code"
+msgstr "Kürzel"
+
+#: models.py:23
+msgid "Abbreviation of the label (internal use)"
+msgstr "Abkürzung der Beschriftung (zum internen Gebrauch)"
+
+#: models.py:24
+msgid "label"
+msgstr "Beschriftung"
+
+#: models.py:24
+msgid "Visible name of the event type"
+msgstr "Sichtbarer Name der Ereignis-Art"
+
+#: models.py:27
+#: models.py:40
+msgid "event type"
+msgstr "Ereignis-Typ"
+
+#: models.py:28
+msgid "event types"
+msgstr "Ereignis-Typen"
+
+#: models.py:38
+msgid "title"
+msgstr "Titel"
+
+#: models.py:38
+msgid "Name of the event"
+msgstr "Name des Ereignisses"
+
+#: models.py:39
+msgid "description"
+msgstr "Beschreibung"
+
+#: models.py:39
+msgid "Short description of the event"
+msgstr "Kurze Beschreibung des Ereignisses"
+
+#: models.py:40
+msgid "Type of the event"
+msgstr "Art des Ereignisses"
+
+#: models.py:42
+msgid "content type"
+msgstr "Inhaltstyp"
+
+#: models.py:42
+msgid "Type of the related object"
+msgstr "Art des verbundenen Objekts"
+
+#: models.py:43
+msgid "object id"
+msgstr "Objekt-ID"
+
+#: models.py:43
+msgid "ID of the related object"
+msgstr "ID des verbundenen Objekts"
+
+#: models.py:47
+#: models.py:149
+msgid "event"
+msgstr "Ereignis"
+
+#: models.py:48
+msgid "events"
+msgstr "Ereignisse"
+
+#: models.py:51
+msgid "Can view event"
+msgstr "Darf Ereignis ansehen"
+
+#: models.py:154
+msgid "occurrence"
+msgstr "Vorkommen"
+
+#: models.py:155
+msgid "occurrences"
+msgstr "Vorkommen"
+
+#: models.py:158
+msgid "Can view occurrence"
+msgstr "Darf Vorkommen ansehen"
+
+#: models.py:289
+msgid "Generic event"
+msgstr "Allgemeines Ereignis"
+
+#: settings.py:10
+msgid "German"
+msgstr "Deutsch"
+
+#: settings.py:11
+msgid "English"
+msgstr "Englisch"
+
+#: utils.py:213
+msgid "whole day"
+msgstr "ganztägig"
+
+#: templates/temporale/add_event.html:2
+#: templates/temporale/add_event.html:4
+msgid "Add Event"
+msgstr "Ereignis hinzufügen"
+
+#: templates/temporale/add_event.html:8
+msgid "Please fix any errors."
+msgstr "Bitte korrigieren Sie allfällige Fehler."
+
+#: templates/temporale/add_event.html:13
+#: templates/temporale/event_detail.html:11
+#: templates/temporale/event_detail.html:37
+#: templates/temporale/occurrence_detail.html:48
+msgid "Back"
+msgstr "Zurück"
+
+#: templates/temporale/add_event.html:15
+msgid "Save"
+msgstr "Sichern"
+
+#: templates/temporale/base.html:6
+msgid "Calendar"
+msgstr "Kalender"
+
+#: templates/temporale/base.html:22
+msgid "Sorry, you’re not cleared for the <em>calendar</em> module!"
+msgstr "Entschuldigung, das <em>Kalender</em>-Modul ist nicht für Sie freigeschaltet!"
+
+#: templates/temporale/daily_view.html:2
+#: templates/temporale/daily_view.html:4
+msgid "Daily View"
+msgstr "Tagesansicht"
+
+#: templates/temporale/daily_view.html:6
+msgid "Previous Day"
+msgstr "Voriger Tag"
+
+#: templates/temporale/daily_view.html:10
+msgid "Next Day"
+msgstr "Nächster Tag"
+
+#: templates/temporale/daily_view.html:17
+#: templates/temporale/recurring_form_part.html:12
+msgid "Time"
+msgstr "Zeit"
+
+#: templates/temporale/daily_view.html:18
+msgid "Events"
+msgstr "Ereignisse"
+
+#: templates/temporale/event_detail.html:2
+#, python-format
+msgid "Event: %(event)s"
+msgstr "Ereignis: %(event)s"
+
+#: templates/temporale/event_detail.html:4
+msgid "Event"
+msgstr "Ereignis"
+
+#: templates/temporale/event_detail.html:5
+msgid "Event Details"
+msgstr "Ereignis-Details"
+
+#: templates/temporale/event_detail.html:13
+#: templates/temporale/occurrence_detail.html:51
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: templates/temporale/event_detail.html:33
+msgid "Add Occurrences"
+msgstr "Vorkommen hinzufügen"
+
+#: templates/temporale/event_detail.html:39
+#: templates/temporale/event_detail.html:42
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: templates/temporale/event_list.html:2
+#: templates/temporale/event_list.html:4
+msgid "All Events"
+msgstr "Alle Ereignisse"
+
+#: templates/temporale/event_list.html:12
+msgid "No events found."
+msgstr "Keine Ereignisse gefunden"
+
+#: templates/temporale/monthly_view.html:2
+#: templates/temporale/monthly_view.html:4
+msgid "Monthly View"
+msgstr "Monatsansicht"
+
+#: templates/temporale/monthly_view.html:6
+msgid "Previous Month"
+msgstr "Voriger Monat"
+
+#: templates/temporale/monthly_view.html:10
+#, python-format
+msgid "View %(year)s"
+msgstr "Übersicht %(year)s"
+
+#: templates/temporale/monthly_view.html:13
+msgid "Next Month"
+msgstr "Nächster Monat"
+
+#: templates/temporale/occurrence_detail.html:2
+#: templates/temporale/occurrence_detail.html:4
+msgid "Event Occurrence"
+msgstr "Ereignis-Vorkommen"
+
+#: templates/temporale/occurrence_detail.html:14
+msgid "Event type"
+msgstr "Ereignis-Art"
+
+#: templates/temporale/occurrence_detail.html:17
+msgid "Description"
+msgstr "Beschreibung"
+
+#: templates/temporale/occurrence_detail.html:22
+msgid "Notes"
+msgstr "Anmerkungen"
+
+#: templates/temporale/recurring_form_part.html:18
+msgid "to"
+msgstr "bis"
+
+#: templates/temporale/recurring_form_part.html:29
+msgid "Repeats"
+msgstr "Wiederholungen"
+
+#: templates/temporale/recurring_form_part.html:34
+msgid "A total of"
+msgstr "Insgesamt"
+
+#: templates/temporale/recurring_form_part.html:37
+msgid "time(s)"
+msgstr "mal"
+
+#: templates/temporale/recurring_form_part.html:47
+msgid "Until"
+msgstr "bis"
+
+#: templates/temporale/recurring_form_part.html:61
+msgid "Every"
+msgstr "Alle"
+
+#: templates/temporale/recurring_form_part.html:66
+msgid "day(s)"
+msgstr "Tag(e)"
+
+#: templates/temporale/recurring_form_part.html:73
+msgid "week(s) on"
+msgstr "Woche(n) am"
+
+#: templates/temporale/recurring_form_part.html:81
+msgid "month(s)"
+msgstr "Monat(e)"
+
+#: templates/temporale/recurring_form_part.html:85
+#: templates/temporale/recurring_form_part.html:112
+msgid "on the"
+msgstr "am"
+
+#: templates/temporale/recurring_form_part.html:94
+msgid "each"
+msgstr "jeden"
+
+#: templates/temporale/recurring_form_part.html:106
+msgid "year(s) in"
+msgstr "Jahr(e) im"
+
+#: templates/temporale/yearly_view.html:2
+#, python-format
+msgid "Year %(year)s"
+msgstr "Jahr %(year)s"
+
+#: templates/temporale/yearly_view.html:4
+msgid "Yearly View"
+msgstr "Jahresansicht"
+
+#: templates/temporale/yearly_view.html:6
+msgid "Previous Year"
+msgstr "Voriges Jahr"
+
+#: templates/temporale/yearly_view.html:10
+msgid "Next Year"
+msgstr "Nächstes Jahr"
+
+#: templates/temporale/yearly_view.html:19
+msgid "Month"
+msgstr "Monat"
+
+#: templates/temporale/yearly_view.html:20
+msgid "Title"
+msgstr "Titel"
+
+#: templates/temporale/yearly_view.html:21
+msgid "Day"
+msgstr "Tag"
+
+#: templates/temporale/yearly_view.html:22
+msgid "Start"
+msgstr "Anfang"
+
+#: templates/temporale/yearly_view.html:23
+msgid "End"
+msgstr "Ende"
+
+#: templates/temporale/yearly_view.html:47
+#, python-format
+msgid "<p>No events occurring in %(year)s</p>"
+msgstr "<p>Im Jahr %(year)s gibt es keine Ereignisse</p>"
+
+#~ msgid "None"
+#~ msgstr "Keine"
+
+#~ msgid "Note(s)"
+#~ msgstr "Anmerkung(en)"
+
+#~ msgid "Main Room"
+#~ msgstr "Hauptraum"
+
+#~ msgid "Private 2"
+#~ msgstr "Privat 2"
+
+#~ msgid "Private 3"
+#~ msgstr "Privat 3"
+
+#~ msgid "Private 4"
+#~ msgstr "Privat 4"
+
+#~ msgid "Last Month"
+#~ msgstr "Letzter Monat"
+
+#~ msgid "note"
+#~ msgstr "Anmerkung"
+
+#~ msgid "created"
+#~ msgstr "Erstellt am"
+
+#~ msgid "abbreviation"
+#~ msgstr "Abkürzung"

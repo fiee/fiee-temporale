@@ -1,0 +1,53 @@
+{% extends "temporale/base.html" %}{% load i18n %}
+{% block title %}{% trans "Monthly View" %}{% endblock %}
+{% block calendar_content %}
+    <h2>{% trans "Monthly View" %}</h2>
+    <h3 class="center">
+        <a href="{% url temporale-monthly-view last_month.year last_month.month %}" class="left" title="{% trans "Previous Month" %}">
+          <span class="ui-icon ui-icon-circle-triangle-w">&lArr;</span>
+        </a>
+        <span>{{ this_month|date:"F" }} 
+          <a title="{% blocktrans with this_month.year as year %}View {{ year}}{% endblocktrans %}" href="{% url temporale-yearly-view this_month.year %}">
+            {{ this_month|date:"Y" }}</a>
+        </span>
+        <a href="{% url temporale-monthly-view next_month.year next_month.month %}" class="right" title="{% trans "Next Month" %}">
+          <span class="ui-icon ui-icon-circle-triangle-e">&rArr;</span>
+        </a>
+    </h3>
+
+    <table class="month-view itemtable">
+        <thead>
+            <tr>
+              {% for day in week %}
+                <th>{{ day }}</th>
+              {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in calendar %}
+            <tr>
+                {% for day,items in row  %}
+                <td{% ifequal day today.day  %} class="today"{% endifequal %}>
+                {% if day %}
+                    <div class="day-ordinal">
+                        <a href="{% url temporale-daily-view today.year today.month day %}">{{ day }}</a>
+                    </div>
+                    {% if items %}
+                    <ul>
+                        {% for item in items %}
+                        <li title="{{ item.description }}">
+                            {% if not item.wholeday %}<span class="event_times">{{ item.start_time|time:"H:i" }}</span>{% endif %}
+                            <a href="{% if item.content_object %}{{ item.content_object.get_absolute_url }}{% else %}{{ item.get_absolute_url }}{% endif %}">
+                              {{ item.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

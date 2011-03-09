@@ -1,0 +1,56 @@
+{% extends "temporale/base.html" %}{% load i18n %}{% csrf_token %}
+{% block title %}{% trans "Event Occurrence" %}{% endblock %}
+{% block calendar_content %}
+     <h2>{% trans "Event Occurrence" %}</h2>
+     <h3>
+         <a href="{{ occurrence.event.get_absolute_url }}">{{ occurrence.title }}</a>
+         &ndash;
+         {% with occurrence.start_time as st  %}
+         <a href="{% url temporale-daily-view st.year st.month st.day %}">
+            {{ st|date:"DATETIME_FORMAT" }}</a>
+        {% endwith %}
+     </h3>
+     <dl class="commentlist">
+         <dt>{% trans "Event type" %}:</dt>
+         <dd>{{ occurrence.event.event_type }}</dd>
+         
+         <dt>{% trans "Description" %}:</dt>
+         <dd>{{ occurrence.event.description|default:"None" }}</dd>
+         
+         {% with occurrence.event.notes.all as enotes %}
+         {% if enotes %}
+           <dt>{% trans "Notes" %}:</dt>
+           {% for note in enotes %}
+             <dd>{{ note }}</dd>
+           {% endfor %}
+         {% endif %}
+         {% endwith %}
+     </dl>
+     
+     <form action="." name="update_occurrence" method="post">
+        {{ form.management_form }}
+        {{ form.id }}
+        {% include "snippets/notes.html" %}
+        
+        {% for field in form.invisible_fields %}{{ field }}{% endfor %}
+        
+        {% for field in form.visible_fields %}
+            <p class="field_wrapper">
+              <label for="id_{{ field.name }}">{% trans field.label %}:</label>
+              <span class="field">{{ field }}</span>
+              {% if field.errors %}{% for error in field.errors %}
+                <span class="field_errors">{{ error }} </span>
+              {% endfor %}{% endif %}
+            </p>
+        {% endfor %}
+        <p class="field_wrapper">
+          <span class="label">
+          <a href="../" class="button"><span class="ui-icon ui-icon-arrowthick-1-w"></span> {% trans "Back" %} </a>
+          </span>
+          <span class="field">
+            <a href="javascript:document.forms['update_occurrence'].submit();" class="button"><span class="ui-icon ui-icon-disk"></span> {% trans "Update" %} </a>
+          </span>
+        </p>
+     </form>
+
+{% endblock %}

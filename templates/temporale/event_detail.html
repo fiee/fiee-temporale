@@ -1,0 +1,45 @@
+{% extends "temporale/base.html" %}{% load i18n %}{% csrf_token %}
+{% block title %}{% blocktrans %}Event: {{ event }}{% endblocktrans %}{% endblock %}
+{% block calendar_content %}
+    <h2>{% trans "Event" %} {{ event }}</h2>
+    <h3>{% trans "Event Details" %}</h3>
+    <form action="." name="update_event" method="post">
+      <input type="hidden" name="update_event" value="1" />
+        {% include "snippets/notes.html" %}
+
+        <p class="field_wrapper">
+          <span class="label"><a href="../" class="button"><span class="ui-icon ui-icon-arrowthick-1-w"></span> {% trans "Back" %} </a></span>
+          <span class="field">
+            <a href="javascript:document.forms['update_event'].submit();" class="button"><span class="ui-icon ui-icon-disk"></span> {% trans "Update" %} </a>
+          </span>
+        </p>
+        {% include "temporale/event_form_part.html" %}
+    </form>
+    
+    <h4>{% trans "Occurrences" %}</h4>
+    {% if event.occurrence_set.count %}
+    <ol class="occurrencelist">
+        {% for o in event.occurrence_set.all %}
+        <li>
+            <a href="{% url temporale-occurrence event.id o.id %}">
+                {{ o.start_time|date:"DATETIME_FORMAT" }} &ndash; 
+                {{ o.end_time|date:"DATETIME_FORMAT" }}</a>
+        </li>
+        {% endfor %}
+    </ol>
+    {% else %}
+    {% endif %}
+    
+    <h3>{% trans "Add Occurrences" %}</h3>
+    <form action="." name="add_occurrence" method="post">
+      <input type="hidden" name="add_occurrence" value="1" />
+        <p class="field_wrapper">
+          <span class="label"><a href="../" class="button"><span class="ui-icon ui-icon-arrowthick-1-w"></span> {% trans "Back" %} </a></span>
+          <span class="field">
+            <a href="javascript:document.forms['add_occurrence'].submit();" class="button"><span class="ui-icon ui-icon-disk"></span> {% trans "Add" %} </a>
+          </span>
+        </p>
+        <!-- <input type="submit" name="_add" value="{% trans "Add" %}" /> -->
+        {% include "temporale/recurring_form_part.html" %}
+    </form>
+{% endblock %}

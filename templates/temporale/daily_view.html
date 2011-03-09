@@ -1,0 +1,32 @@
+{% extends "temporale/base.html" %}{% load i18n %}
+{% block title %}{% trans "Daily View" %}{% endblock %}
+{% block calendar_content %}
+    <h2>{% trans "Daily View" %}</h2>
+    <h3 class="center">
+        <a href="{% url temporale-daily-view prev_day.year prev_day.month prev_day.day %}" class="left" title="{% trans "Previous Day" %}">
+          <span class="ui-icon ui-icon-circle-triangle-w">&lArr;</span>
+        </a>
+        <span>{{ day|date:"l" }}, {{ day|date:"DATE_FORMAT" }}</span>
+        <a href="{% url temporale-daily-view next_day.year next_day.month next_day.day %}" class="right" title="{% trans "Next Day" %}">
+          <span class="ui-icon ui-icon-circle-triangle-e">&rArr;</span>
+        </a>
+    </h3>
+    <table class="calendar itemtable">
+        <thead>
+            <tr>
+                <th style="width:20%">{% trans "Time" %}</th>
+                <th colspan="4">{% trans "Events" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tm,cells in timeslots %}
+            <tr>
+                <th><a href="{% url temporale-add-event %}?dtstart={{ day.date.isoformat }}T{{ tm }}">{{ tm }}</a></th>
+                {% for cell in cells %}
+                <td{% if cell.event_class %} class="{{cell.event_class}}"{% endif %}>{{ cell|safe }}</td>    
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

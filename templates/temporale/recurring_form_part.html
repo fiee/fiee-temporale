@@ -1,0 +1,120 @@
+{% load i18n %}
+<p class="field_wrapper">
+  <label for="id_day">{% trans recurrence_form.day.label %}:</label>
+  <span class="field_help">{% trans recurrence_form.day.help_text %}</span>
+  <span class="field">{{ recurrence_form.day }}</span>
+  {% if recurrence_form.day.errors %}{% for error in recurrence_form.day.errors %}
+    <span class="field_errors">{{ error }} </span>
+  {% endfor %}{% endif %}
+</p>
+
+<p class="field_wrapper">
+  <div class="label">{% trans "Time" %}:</div>
+  <span class="field_help">{% trans recurrence_form.start_time_delta.help_text %}</span>
+  <label for="id_start_time_delta" class="hidden">{% trans recurrence_form.start_time_delta.label %}:</label>
+  <label for="id_end_time_delta" class="hidden">{% trans recurrence_form.end_time_delta.label %}:</label>
+  <span class="field shortinput">
+    {{ recurrence_form.start_time_delta }} 
+    {% trans "to" %} 
+    {{ recurrence_form.end_time_delta }}
+  </span>
+  {% if recurrence_form.start_time_delta.errors %}{% for error in recurrence_form.start_time_delta.errors %}
+    <span class="field_errors">{{ error }} </span>
+  {% endfor %}{% endif %}
+  {% if recurrence_form.end_time_delta.errors %}{% for error in recurrence_form.end_time_delta.errors %}
+    <span class="field_errors">{{ error }} </span>
+  {% endfor %}{% endif %}
+</p>
+  
+<h4>{% trans "Repeats" %}</h4>
+
+<div class="field_wrapper">
+  <div class="label">
+    <input checked="checked" type="radio" id="id_repeats_0" value="count" name="repeats" class="left" />&nbsp;
+    <label for="id_repeats_0" style="white-space:nowrap;">{% trans "A total of" %}&nbsp;</label>
+  </div>
+  <span class="field shortinput">
+    {{ recurrence_form.count }}&nbsp;{% trans "time(s)" %}
+  </span>
+  {% if recurrence_form.count.errors %}{% for error in recurrence_form.count.errors %}
+    <span class="field_errors">{{ error }} </span>
+  {% endfor %}{% endif %}
+</div>
+
+<div class="field_wrapper">
+  <div class="label">
+    <input type="radio" id="id_repeats_1" value="until" name="repeats" class="left"/>&nbsp;
+    <label for="id_repeats_1">{% trans "Until" %}</label>
+  </div>
+  <span class="field shortinput">
+    {{ recurrence_form.until }}
+  </span>
+  {% if recurrence_form.repeats.errors %}{% for error in recurrence_form.repeats.errors %}
+    <span class="field_errors">{{ error }} </span>
+  {% endfor %}{% endif %}
+</div>
+  
+<h4>{% trans "Frequency" %}</h4>
+
+<div class="field_wrapper">
+  <div class="label shortinput">
+    <label for="id_freq_0">{% trans "Every" %}&nbsp;</label>
+    {{ recurrence_form.interval }}
+  </div>
+  <span class="field shortinput">
+    <input type="radio" id="id_freq_0" value="3" name="freq" class="left" />&nbsp;
+    <label for="id_freq_0" class="left">{% trans "day(s)" %}&nbsp;</label>
+  </span>
+</div>
+
+<div class="field_wrapper">
+  <div class="field shortinput left form-indent-labelwidth">
+    <input checked="checked" type="radio" id="id_freq_1" value="2" name="freq" class="left" />&nbsp;
+    <label for="id_freq_1" class="left">{% trans "week(s) on" %}&nbsp;</label>&nbsp;
+    <div class="horizontal left">{{ recurrence_form.week_days }}</div>
+  </div>
+</div>
+
+<div class="field_wrapper">
+  <div class="field left form-indent-labelwidth">
+    <input type="radio" id="id_freq_2" value="1" name="freq" class="left" />
+    <label for="id_freq_2" class="left"> {% trans "month(s)" %}</label>&nbsp;
+    <div class="left form-indent">
+      <div class="left">
+        <input type="radio" id="id_month_option_0" value="on" name="month_option" class="left" /> 
+        <label for="id_month_option_0" class="left">{% trans "on the" %}</label>&nbsp;
+        <div class="horizontal left shortinput">
+          {{ recurrence_form.month_ordinal }}
+          {{ recurrence_form.month_ordinal_day }}
+        </div>
+      </div>
+      <br class="clear"/>
+      <div class="left">
+        <input checked="checked" type="radio" id="id_month_option_1" value="each" name="month_option" class="left" />
+        <label for="id_month_option_1" class="left">{% trans "each" %}</label>&nbsp;
+        <div class="horizontal">
+          {{ recurrence_form.each_month_day }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field_wrapper">
+  <div class="field left form-indent-labelwidth">
+    <input type="radio" id="id_freq_3" value="0" name="freq" class="left" />&nbsp;
+    <label for="id_freq_3" class="left">{% trans "year(s) in" %}</label>&nbsp;
+    <div class="horizontal left">
+      {{ recurrence_form.year_months}} 
+    </div>
+    <div class="shortinput left">
+      {{ recurrence_form.is_year_month_ordinal }} 
+      <label for="id_is_year_month_ordinal" class="left">{% trans "on the" %} </label>&nbsp;
+      {{ recurrence_form.year_month_ordinal }}
+      {{ recurrence_form.year_month_ordinal_day }}
+    </div>
+  </div>
+  {% if recurrence_form.interval.errors %}{% for error in recurrence_form.interval.errors %}
+    <span class="field_errors">{{ error }} </span>
+  {% endfor %}{% endif %}
+</div>
