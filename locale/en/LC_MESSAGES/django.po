@@ -1,7 +1,7 @@
 # fiëé témporâle.
 # Copyright (C) 2011 fiëé visuëlle
 # This file is distributed under the same license as the temporale package.
-# Henning Hraban Ramm <hraba@fiee.net>, 2011.
+# Henning Hraban Ramm <hraban@fiee.net>, 2011.
 #
 msgid ""
 msgstr ""
