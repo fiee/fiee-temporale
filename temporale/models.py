@@ -224,12 +224,14 @@ def create_event(title, event_type, description='', start_time=None,
         follow the ``dateutils`` API (see http://labix.org/python-dateutil)
     """
     from temporale.conf import settings as temporale_settings
+    
+    model_type = ContentType.objects.get_for_model(content_object)
 
     if isinstance(event_type, tuple):
         event_type, created = EventType.objects.get_or_create(
             code=event_type[0],
             label=event_type[1],
-            content_type=content_object,
+            content_type=model_type,
         )
 
     event = Event.objects.create(
