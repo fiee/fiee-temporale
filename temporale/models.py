@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.db import models
 from django.db.models.signals import post_save
-from dorsale.models import DorsaleSiteManager
+from dorsale.managers import DorsaleSiteManager
 from adhesive.models import DorsaleAnnotatedBaseModel
 from dateutil import rrule
 
