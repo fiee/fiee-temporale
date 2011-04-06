@@ -13,7 +13,7 @@ from django.db import models
 from django.template.context import RequestContext
 from django.shortcuts import get_object_or_404, render_to_response
 
-from sticky.models import Note
+from adhesive.models import Note
 
 from temporale.models import Event, Occurrence
 from temporale import utils, forms
