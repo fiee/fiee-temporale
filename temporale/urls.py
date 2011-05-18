@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 
-from temporale import views
+from temporale import views, vcal
 
 
 urlpatterns = patterns('',
@@ -38,4 +38,8 @@ urlpatterns = patterns('',
     url(r'^events/(\d+)/(\d+)/$',
         view=views.occurrence_view,
         name='temporale-occurrence'),
+
+    url(r'^vcal/$',
+        view=vcal.events_as_vcal,
+        name='temporale-vcal'),
 )
