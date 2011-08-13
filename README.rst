@@ -12,6 +12,7 @@ Dependencies
 * Django 1.2 (may work with 1.1.) with included contributions
 * django-registration_ (or compatible)
 * fiee-dorsale_
+* python-dateutil_ 1.5 (not 2.0 or above, that's only for Python 3!)
 
 
 Known Issues
@@ -38,6 +39,7 @@ Author(s)
 .. _fiee-dorsale: https://github.com/fiee/fiee-dorsale
 .. _django-swingtime: https://github.com/fiee/django-swingtime
 .. _django-registration: https://bitbucket.org/ubernostrum/django-registration/
+.. _python-dateutil: http://labix.org/python-dateutil
 .. _YUI grids css: http://developer.yahoo.com/yui/grids/
 .. _jQuery: http://docs.jquery.com/
 .. _jQuery UI: http://jqueryui.com/demos/
