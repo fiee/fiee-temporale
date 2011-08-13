@@ -33,7 +33,7 @@ def event_listing(request, template='temporale/event_list.html', events=None,
     """
     View all ``events``.
 
-    If ``events`` is a queryset, clone it. If ``None`` default to all ``Event``s.
+    If ``events`` is a queryset, clone it. If ``None``, default to all ``Event``s.
 
     Context parameters:
 
