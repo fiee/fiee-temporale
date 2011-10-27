@@ -228,18 +228,18 @@ def create_event(title, event_type, description='', start_time=None,
     model_type = ContentType.objects.get_for_model(content_object)
 
     if isinstance(event_type, tuple):
-        event_type, created = EventType.objects.get_or_create(
+        new_event_type, created = EventType.objects.get_or_create(
             code=event_type[0],
             content_type=model_type,
         )
         if created:
-            event_type.label=event_type[1]
-            event_type.save()
+            new_event_type.label=event_type[1]
+            new_event_type.save()
 
     event = Event.objects.create(
         title=title,
         description=description,
-        event_type=event_type,
+        event_type=new_event_type,
         content_object=content_object,
     )
     if content_object:
