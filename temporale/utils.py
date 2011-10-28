@@ -105,7 +105,7 @@ def create_timeslot_table(dt=None, items=None,
     event occasions that overlap a specific time slot.
 
     Currently, there is an assumption that if an occurrence has a ``start_time``
-    that falls with the temporal scope of the grid, then that ``start_time`` will
+    that falls within the temporal scope of the grid, then that ``start_time`` will
     also match an interval in the sequence of the computed row entries.
 
     * ``dt`` - a ``datetime.datetime`` instance or ``None`` to default to now
