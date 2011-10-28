@@ -6,6 +6,24 @@ Generic event data for your Django models,
 based on django-swingtime_ by David A. Krauth (dakrauth)
 (at the moment it’s mostly his code, that will probably change).
 
+Use this to add arbitrary date-based relations to your models,
+e.g. a person has a birthday, some life events and an obit;
+a blog post has a creation date, a publishing date, an date of last edit and a revocation date;
+a magazine issue has a publication day, editorial and advertising deadlines etc.
+
+Using dateutil’s repetition rules, you can configure rather complicated occurrence patterns.
+
+Finally show all your dates in a nice calendar or timeline view.
+
+
+Howto
+-----
+
+You don’t need to change your models at all, but it’s easier if you add::
+
+    events = django.contrib.contenttypes.generic.GenericRelation(temporale.models.Event)
+
+
 Dependencies
 ------------
 
@@ -19,6 +37,7 @@ Known Issues
 ------------
 
 * fork of my personal version of swingtime, not yet working at all
+* timeline view not started (planned with SIMILE widget)
 
 
 License
