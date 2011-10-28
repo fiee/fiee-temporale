@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-temporale\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-24 17:57+0100\n"
-"PO-Revision-Date: 2011-03-09 19:48+0100\n"
+"POT-Creation-Date: 2011-10-28 22:21+0200\n"
+"PO-Revision-Date: 2011-10-28 22:23+0100\n"
 "Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
 "Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
 "Language: \n"
@@ -236,9 +236,9 @@ msgstr "Datum"
 #: forms.py:301
 #: forms.py:420
 #: forms.py:422
-#: models.py:147
-#: models.py:148
-#: models.py:149
+#: models.py:156
+#: models.py:157
+#: models.py:158
 msgid "-"
 msgstr "-"
 
@@ -298,102 +298,107 @@ msgid "Unknown interval rule %s"
 msgstr "Unbekannte Intervall-Regel %s"
 
 #: forms.py:419
-#: models.py:147
+#: models.py:156
 msgid "start time"
 msgstr "Anfangszeit"
 
 #: forms.py:421
-#: models.py:148
+#: models.py:157
 msgid "end time"
 msgstr "Endzeit"
 
-#: models.py:23
+#: models.py:24
 msgid "code"
 msgstr "Kürzel"
 
-#: models.py:23
+#: models.py:24
 msgid "Abbreviation of the label (internal use)"
 msgstr "Abkürzung der Beschriftung (zum internen Gebrauch)"
 
-#: models.py:24
+#: models.py:25
 msgid "label"
 msgstr "Beschriftung"
 
-#: models.py:24
+#: models.py:25
 msgid "Visible name of the event type"
 msgstr "Sichtbarer Name der Ereignis-Art"
 
-#: models.py:27
-#: models.py:40
-msgid "event type"
-msgstr "Ereignis-Typ"
-
-#: models.py:28
-msgid "event types"
-msgstr "Ereignis-Typen"
-
-#: models.py:38
-msgid "title"
-msgstr "Titel"
-
-#: models.py:38
-msgid "Name of the event"
-msgstr "Name des Ereignisses"
-
-#: models.py:39
-msgid "description"
-msgstr "Beschreibung"
-
-#: models.py:39
-msgid "Short description of the event"
-msgstr "Kurze Beschreibung des Ereignisses"
-
-#: models.py:40
-msgid "Type of the event"
-msgstr "Art des Ereignisses"
-
-#: models.py:42
+#: models.py:26
+#: models.py:44
 msgid "content type"
 msgstr "Inhaltstyp"
 
+#: models.py:26
+msgid "This event type is valid for related objects of this type"
+msgstr "Dieser Event-Typ ist ist für verknüpfte Objeke folgenden Typs gültig"
+
+#: models.py:29
 #: models.py:42
+msgid "event type"
+msgstr "Ereignis-Typ"
+
+#: models.py:30
+msgid "event types"
+msgstr "Ereignis-Typen"
+
+#: models.py:40
+msgid "title"
+msgstr "Titel"
+
+#: models.py:40
+msgid "Name of the event"
+msgstr "Name des Ereignisses"
+
+#: models.py:41
+msgid "description"
+msgstr "Beschreibung"
+
+#: models.py:41
+msgid "Short description of the event"
+msgstr "Kurze Beschreibung des Ereignisses"
+
+#: models.py:42
+msgid "Type of the event"
+msgstr "Art des Ereignisses"
+
+#: models.py:44
 msgid "Type of the related object"
 msgstr "Art des verbundenen Objekts"
 
-#: models.py:43
+#: models.py:45
 msgid "object id"
 msgstr "Objekt-ID"
 
-#: models.py:43
+#: models.py:45
 msgid "ID of the related object"
 msgstr "ID des verbundenen Objekts"
 
-#: models.py:47
-#: models.py:149
+#: models.py:49
+#: models.py:158
 msgid "event"
 msgstr "Ereignis"
 
-#: models.py:48
+#: models.py:50
 msgid "events"
 msgstr "Ereignisse"
 
-#: models.py:51
+#: models.py:53
 msgid "Can view event"
 msgstr "Darf Ereignis ansehen"
 
-#: models.py:154
+#: models.py:163
 msgid "occurrence"
 msgstr "Vorkommen"
 
-#: models.py:155
+#: models.py:164
 msgid "occurrences"
 msgstr "Vorkommen"
 
-#: models.py:158
+#: models.py:167
 msgid "Can view occurrence"
 msgstr "Darf Vorkommen ansehen"
 
-#: models.py:289
+#: models.py:311
 msgid "Generic event"
 msgstr "Allgemeines Ereignis"
 
@@ -434,7 +439,7 @@ msgid "Calendar"
 msgstr "Kalender"
 
 #: templates/temporale/base.html:22
-msgid "Sorry, you’re not cleared for the <em>calendar</em> module!"
+msgid "Sorry, you’re not cleared for the <em>temporale</em> module!"
 msgstr "Entschuldigung, das <em>Kalender</em>-Modul ist nicht für Sie freigeschaltet!"
 
 #: templates/temporale/daily_view.html:2
