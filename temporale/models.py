@@ -1,3 +1,4 @@
+# -*- coding: utf-8 *-*
 from datetime import datetime, time
 from django.utils.translation import ugettext as _
 from django.contrib.contenttypes.models import ContentType
@@ -83,6 +84,13 @@ class Event(DorsaleAnnotatedBaseModel):
             delta = end_time - start_time
             for ev in rrule.rrule(dtstart=start_time, **rrule_params):
                 self.occurrence_set.create(start_time=ev, end_time=ev + delta, createdby=self.createdby, site=self.site)
+
+    def add_single_occurrence(self, start_time, end_time=None):
+        """
+        Add a single occurrence to the event, using ``start_time`` also as ``end_time`` if empty.
+        """
+        end_time = end_time or start_time
+        self.occurrence_set.create(start_time=start_time, end_time=start_time, createdby=self.createdby, site=self.site)
 
     def upcoming_occurrences(self):
         """
@@ -220,6 +228,12 @@ def create_event(title, event_type, description='', start_time=None,
         will default to ``start_time`` plus temporale_settings.DEFAULT_OCCURRENCE_DURATION
         hour if ``None``
 
+    ``note``
+        some remark that you’d like to attach as a note (see `fiee-adhesive`)
+        
+    ``content_object``
+        the object where you want to attach your new event
+
     ``freq``, ``count``, ``rrule_params``
         follow the ``dateutils`` API (see http://labix.org/python-dateutil)
     """
@@ -235,6 +249,8 @@ def create_event(title, event_type, description='', start_time=None,
         if created:
             new_event_type.label=event_type[1]
             new_event_type.save()
+    else:
+        new_event_type = event_type
 
     event = Event.objects.create(
         title=title,
