@@ -1,0 +1,68 @@
+[
+    {
+        "pk": -1,
+        "model": "auth.user",
+        "fields": {
+            "username": "nobody",
+            "first_name": "Nobody",
+            "last_name": "Anonymous",
+            "is_active": false,
+            "is_superuser": false,
+            "is_staff": false,
+            "last_login": "2011-10-28 12:40:33",
+            "groups": [],
+            "user_permissions": [],
+            "password": "",
+            "email": "",
+            "date_joined": "2011-10-28 12:40:33"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "biography.person",
+        "fields": {
+            "name": "Rosa Luxemburg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "biography.person",
+        "fields": {
+            "name": "Marie Curie"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "biography.person",
+        "fields": {
+            "name": "Albert Einstein"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "temporale.eventtype",
+        "fields": {
+            "code": "birth",
+            "content_type": 12,
+            "label": "Birthday"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "temporale.eventtype",
+        "fields": {
+            "code": "obit",
+            "content_type": 12,
+            "label": "Day of Death"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "temporale.eventtype",
+        "fields": {
+            "code": "life",
+            "content_type": 12,
+            "label": "Lifespan"
+        }
+    }
+]
