@@ -11,9 +11,20 @@ e.g. a person has a birthday, some life events and an obit;
 a blog post has a creation date, a publishing date, an date of last edit and a revocation date;
 a magazine issue has a publication day, editorial and advertising deadlines etc.
 
+Or you might have a timetable of recurring courses, like in swingtime’s original demo app.
+
 Using dateutil’s repetition rules, you can configure rather complicated occurrence patterns.
 
 Finally show all your dates in a nice calendar or timeline view.
+
+
+Differentiation
+---------------
+
+These generic events are good if you’d like to show very different events together in one calendar.
+
+If you have very uniform event-based models, then this might be too complex for you.
+I didn’t check yet, but I guess it hits the database rather hard.
 
 
 Howto
