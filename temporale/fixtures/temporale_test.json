@@ -20,7 +20,7 @@
         "model": "temporale.event", 
         "fields": {
             "event_type": 1, 
-            "title": "bravo",
+            "title": "alpha",
             "description": ""
         }
     }, 
@@ -28,8 +28,8 @@
         "pk": 2, 
         "model": "temporale.event", 
         "fields": {
-            "event_type": 2, 
-            "title": "echo",
+            "event_type": 1, 
+            "title": "bravo",
             "description": ""
         }
     }, 
@@ -46,8 +46,8 @@
         "pk": 4, 
         "model": "temporale.event", 
         "fields": {
-            "event_type": 2, 
-            "title": "foxtrot",
+            "event_type": 1, 
+            "title": "delta",
             "description": ""
         }
     }, 
@@ -55,13 +55,22 @@
         "pk": 5, 
         "model": "temporale.event", 
         "fields": {
-            "event_type": 1, 
-            "title": "alpha",
+            "event_type": 2, 
+            "title": "echo",
             "description": ""
         }
     }, 
     {
         "pk": 6, 
+        "model": "temporale.event", 
+        "fields": {
+            "event_type": 2, 
+            "title": "foxtrot",
+            "description": ""
+        }
+    }, 
+    {
+        "pk": 7, 
         "model": "temporale.event", 
         "fields": {
             "event_type": 2, 
@@ -70,30 +79,21 @@
         }
     }, 
     {
-        "pk": 7, 
+        "pk": 8, 
         "model": "temporale.event", 
         "fields": {
             "event_type": 1, 
-            "title": "delta",
+            "title": "gamma",
             "description": ""
         }
     }, 
     {
-        "pk": 6, 
-        "model": "temporale.occurrence", 
+        "pk": 9, 
+        "model": "temporale.event", 
         "fields": {
-            "start_time": "2011-12-11 15:15:00", 
-            "event": 6, 
-            "end_time": "2011-12-11 15:45:00"
-        }
-    }, 
-    {
-        "pk": 5, 
-        "model": "temporale.occurrence", 
-        "fields": {
-            "start_time": "2011-12-11 15:30:00", 
-            "event": 5, 
-            "end_time": "2011-12-11 17:45:00"
+            "event_type": 2, 
+            "title": "holy",
+            "description": ""
         }
     }, 
     {
@@ -101,19 +101,19 @@
         "model": "temporale.occurrence", 
         "fields": {
             "start_time": "2011-12-11 16:00:00", 
-            "event": 1, 
+            "event": 2, 
             "end_time": "2011-12-11 16:45:00"
         }
     }, 
     {
-        "pk": 4, 
+        "pk": 2, 
         "model": "temporale.occurrence", 
         "fields": {
-            "start_time": "2011-12-11 16:00:00", 
-            "event": 4, 
-            "end_time": "2011-12-11 16:45:00"
+            "start_time": "2011-12-11 17:15:00", 
+            "event": 5, 
+            "end_time": "2011-12-11 18:00:00"
         }
-    }, 
+    },
     {
         "pk": 3, 
         "model": "temporale.occurrence", 
@@ -124,21 +124,66 @@
         }
     }, 
     {
+        "pk": 4, 
+        "model": "temporale.occurrence", 
+        "fields": {
+            "start_time": "2011-12-11 16:00:00", 
+            "event": 6, 
+            "end_time": "2011-12-11 16:45:00"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "temporale.occurrence", 
+        "fields": {
+            "start_time": "2011-12-11 15:30:00", 
+            "event": 1, 
+            "end_time": "2011-12-11 17:45:00"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "temporale.occurrence", 
+        "fields": {
+            "start_time": "2011-12-11 15:15:00", 
+            "event": 7, 
+            "end_time": "2011-12-11 15:45:00"
+        }
+    }, 
+    {
         "pk": 7, 
         "model": "temporale.occurrence", 
         "fields": {
             "start_time": "2011-12-11 16:30:00", 
-            "event": 7, 
+            "event": 4, 
             "end_time": "2011-12-11 17:15:00"
         }
-    }, 
+    },
     {
-        "pk": 2, 
+        "pk": 8, 
         "model": "temporale.occurrence", 
         "fields": {
-            "start_time": "2011-12-11 17:15:00", 
-            "event": 2, 
-            "end_time": "2011-12-11 18:00:00"
+            "start_time": "2011-12-10 16:30:00", 
+            "event": 8, 
+            "end_time": "2011-12-11 15:15:00"
+        }
+    },
+    {
+        "pk": 9, 
+        "model": "temporale.occurrence", 
+        "fields": {
+            "start_time": "2011-12-11 18:00:00", 
+            "event": 8, 
+            "end_time": "2011-12-14 18:00:00"
+        }
+    },
+    {
+        "pk": 10, 
+        "model": "temporale.occurrence", 
+        "fields": {
+            "start_time": "2011-12-11 00:00:00", 
+            "event": 9, 
+            "end_time": "2011-12-14 00:00:00"
         }
     }
 ]

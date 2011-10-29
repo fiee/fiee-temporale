@@ -7,9 +7,10 @@ import itertools
 
 from django.db.models.query import QuerySet
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 #from dateutil import rrule
 from temporale.conf import settings as temporale_settings
+from temporale.models import Occurrence
 
 
 def html_mark_safe(func):
@@ -110,7 +111,7 @@ def create_timeslot_table(dt=None, items=None,
 
     * ``dt`` - a ``datetime.datetime`` instance or ``None`` to default to now
     * ``items`` - a queryset or sequence of ``Occurrence`` instances. If
-      ``None``, default to the daily occurrences for ``dt``
+      ``None``, default to the daily occurrences for ``dt``.
     * ``start_time`` - a ``datetime.time`` instance
     * ``end_time_delta`` - a ``datetime.timedelta`` instance
     * ``time_delta`` - a ``datetime.timedelta`` instance
@@ -122,10 +123,13 @@ def create_timeslot_table(dt=None, items=None,
       This class should also expose ``event_type`` and ``event_type`` attrs, and
       handle the custom output via its __unicode__ method.
     """
-    from temporale.models import Occurrence
     dt = dt or datetime.now()
+    dt0 = datetime.combine(dt.date(), time(0,0))
     dtstart = datetime.combine(dt.date(), start_time)
     dtend = dtstart + end_time_delta
+    wholedaytime = datetime.combine(dt.date(), time(0,0,1))
+
+    print "\nnew table from",dt.date(),start_time,'to',dtend.time()
 
     if isinstance(items, QuerySet):
         items = items._clone()
@@ -133,7 +137,7 @@ def create_timeslot_table(dt=None, items=None,
         items = Occurrence.objects.daily_occurrences(dt).select_related('event')
 
     # build a mapping of timeslot "buckets"
-    timeslots = { datetime.combine(dt.date(), time(0,0)) : {}, }
+    timeslots = { wholedaytime : {}, }
     n = dtstart
     while n <= dtend:
         timeslots[n] = {}
@@ -142,19 +146,20 @@ def create_timeslot_table(dt=None, items=None,
     # fill the timeslot buckets with occurrence proxies
     for item in sorted(items):
         
-        if item.end_time.date() <= dt.date():
-            # this item began before the start of our schedule constraints
+        if item.end_time < dt0 or item.start_time > dtend \
+        or (item.end_time <= dtstart and not item.wholeday()): # wholeday is normally < start time
+            # events outside of our schedule constraints
+            #print "excluding", item
             continue
         
-        if item.start_time.time() == item.end_time.time() \
-        and item.start_time.time() < start_time:
+        if item.wholeday():
             # whole day events
-            rowkey = 0 #
-            current = dtstart
-
-        if item.start_time > dtstart:
+            rowkey = current = wholedaytime
+        elif item.start_time > dtstart:
+            # event started after our start time
             rowkey = current = item.start_time
         else:
+            # event started on/before our start time
             rowkey = current = dtstart
 
         timeslot = timeslots.get(rowkey, None)
@@ -173,6 +178,9 @@ def create_timeslot_table(dt=None, items=None,
             if colkey not in timeslot:
                 proxy = proxy_class(item, colkey)
                 timeslot[colkey] = proxy
+                
+                if item.wholeday():
+                    break
 
                 while current < item.end_time:
                     rowkey = current
@@ -209,7 +217,7 @@ def create_timeslot_table(dt=None, items=None,
             cols[colkey] = proxy
             if not proxy.event_class and column_classes and proxy.event_type:
                 proxy.event_class = column_classes[colkey][proxy.event_type.code]()
-        if rowkey.time() == time(0,0):
+        if rowkey == wholedaytime:
             rowkey = _(u'whole day')
         else:
             rowkey = rowkey.strftime('%H:%M')

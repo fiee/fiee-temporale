@@ -11,11 +11,11 @@ from temporale import utils
 from temporale.models import *
 
 expected_table_0 = """\
-| whole day |          |          |          |          |          |
+| whole day | holy     |          |          |          |          |
 """
 
 expected_table_1 = expected_table_0 + """\
-| 15:00 |          |          |          |          |          |
+| 15:00 | gamma    |          |          |          |          |
 | 15:15 | zelda    |          |          |          |          |
 | 15:30 | zelda    | alpha    |          |          |          |
 | 15:45 |          | alpha    |          |          |          |
@@ -27,7 +27,7 @@ expected_table_1 = expected_table_0 + """\
 | 17:15 | echo     | alpha    |          |          |          |
 | 17:30 | echo     | alpha    |          |          |          |
 | 17:45 | echo     |          |          |          |          |
-| 18:00 |          |          |          |          |          |
+| 18:00 | gamma    |          |          |          |          |
 """
 
 expected_table_2 = expected_table_0 + """\
@@ -53,14 +53,14 @@ expected_table_3 = expected_table_0 + """\
 """
 
 expected_table_4 = """\
-| whole day |          |          |          |          |
-| 18:00 |          |          |          |          |
-| 18:15 |          |          |          |          |
-| 18:30 |          |          |          |          |
-| 18:45 |          |          |          |          |
-| 19:00 |          |          |          |          |
-| 19:15 |          |          |          |          |
-| 19:30 |          |          |          |          |
+| whole day | holy     |          |          |          |
+| 18:00 | gamma    |          |          |          |
+| 18:15 | gamma    |          |          |          |
+| 18:30 | gamma    |          |          |          |
+| 18:45 | gamma    |          |          |          |
+| 19:00 | gamma    |          |          |          |
+| 19:15 | gamma    |          |          |          |
+| 19:30 | gamma    |          |          |          |
 """
 
 expected_table_5 = expected_table_0 + """\
@@ -72,14 +72,14 @@ class TableTest(TestCase):
     fixtures = ['temporale_test']
 
     def setUp(self):
-        self._dt = dt = datetime(2011,12,11)
+        self._dt = datetime(2011,12,11)
 
     def table_as_string(self, table):
         timefmt = '| %-5s'
         cellfmt = '| %-8s'
         out = StringIO()
         for tm, cells in table:
-            print >> out, timefmt % tm, #.strftime('%H:%M'),
+            print >> out, timefmt % tm,
             for cell in cells:
                 if cell:
                     print >> out, cellfmt % cell.event.title,
@@ -90,7 +90,7 @@ class TableTest(TestCase):
         return out.getvalue()
 
     def _do_test(self, start, end, expect):
-        import pdb
+        #import pdb
         start = time(*start)
         dtstart = datetime.combine(self._dt, start)
         etd = datetime.combine(self._dt, time(*end)) - dtstart
@@ -99,7 +99,7 @@ class TableTest(TestCase):
         table = utils.create_timeslot_table(self._dt, start_time=start, end_time_delta=etd)
 
         actual = self.table_as_string(table)
-        out = 'Expecting:\n%s\nActual:\n%s' % (expect, actual)
+        out = '\nExpecting:\n%s\nActual:\n%s' % (expect, actual)
         #print out
         self.assertEqual(actual, expect, out)
 
@@ -155,6 +155,7 @@ class NewEventFormTest(TestCase):
         )
 
 def doc_tests():
+    fixtures = ['temporale_test']
     """
         >>> from dateutil import rrule
         >>> from datetime import datetime
