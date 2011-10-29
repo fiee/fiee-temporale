@@ -168,6 +168,8 @@ class Occurrence(DorsaleAnnotatedBaseModel):
         ]
 
     def __unicode__(self):
+        if self.end_time > self.start_time:
+            return u'%s: %s – %s' % (self.title, self.start_time.isoformat(), self.end_time.isoformat())
         return u'%s: %s' % (self.title, self.start_time.isoformat())
 
     @models.permalink
