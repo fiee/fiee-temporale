@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 import os
 
 setup(name='fiee-temporale',
-      version='0.0.1b1',
+      version='0.0.1b2',
       description=u'Generic events for your django models',
       keywords='event date calendar generic attachment',
       author='Henning Hraban Ramm',
