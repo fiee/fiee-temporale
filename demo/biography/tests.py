@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-
-Replace this with more appropriate tests for your application.
-"""
 from datetime import datetime, date
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
@@ -34,7 +28,7 @@ class BioEventsTest(TestCase):
         self.assertEqual(EventType.objects.count(), 3)
         self.assertEqual(Person.objects.count(), 3)
 
-    def test_events(self):
+    def test_single_events(self):
         # try direct event creation
         mc_b = Event(title='Birth', description='in Warszawa', event_type=self.birthday, content_object=self.luxemburg)
         mc_b.save()
@@ -53,4 +47,13 @@ class BioEventsTest(TestCase):
 
         create_event('Death', self.obit, description=u'murdered in Berlin', start_time=date(1919,1,15), content_object=self.luxemburg)
         self.assertEqual(Event.objects.count(), 4)
+        
+    def test_span_events(self):
+        mc_l = Event(title='Life', description='', event_type=self.lifespan, content_object=self.curie)
+        mc_l.save()
+        mc_l.add_single_occurrence(date(1867,11,7), date(1934,7,4))
+        
+        create_event('Life', self.lifespan, description='', start_time=date(1871,3,5), end_time=date(1919,1,15), content_object=self.luxemburg)
+        
+        self.assertEqual(Event.objects.filter(event_type=self.lifespan).count(), 2)
         
