@@ -30,7 +30,7 @@
      <form action="." name="update_occurrence" method="post">
         {{ form.management_form }}
         {{ form.id }}
-        {% include "snippets/notes.html" %}
+        {% include "adhesive/notes.html" %}
         
         {% for field in form.invisible_fields %}{{ field }}{% endfor %}
         
