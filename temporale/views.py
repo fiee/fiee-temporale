@@ -69,12 +69,12 @@ def event_view(request, pk, template='temporale/event_detail.html',
     """
     event = get_object_or_404(Event, pk=pk)
     event_form = recurrence_form = None
+    event_type = ContentType.objects.get_for_model(event)
     if request.method == 'POST':
         if 'update_event' in request.POST:
             event_form = event_form_class(request.POST, instance=event, user=request.user)
             if event_form.is_valid():
                 if not 'note' in event_form.cleaned_data and 'note' in request.POST:
-                    event_type = ContentType.objects.get_for_model(event)
                     n, isnew = Note.objects.get_or_create(content_type=event_type, object_id=pk)
                     if isnew:
                         n.createdby = request.user
@@ -100,7 +100,7 @@ def event_view(request, pk, template='temporale/event_detail.html',
 
     return render_to_response(template,
         dict(event=event, event_form=event_form, 
-             recurrence_form=recurrence_form, notes=event.notes.all()),
+             recurrence_form=recurrence_form, notes=event.notes.all(), item=event, item_type=event_type),
         context_instance=RequestContext(request))
 
 @login_required
@@ -119,11 +119,11 @@ def occurrence_view(request, event_pk, pk,
         a form object for updating the occurrence
     """
     occurrence = get_object_or_404(Occurrence, pk=pk, event__pk=event_pk)
+    occurrence_type = ContentType.objects.get_for_model(occurrence)
     if request.method == 'POST':
         form = form_class(request.POST, instance=occurrence, user=request.user)
         if form.is_valid():
             if not 'note' in form.cleaned_data and 'note' in request.POST:
-                occurrence_type = ContentType.objects.get_for_model(occurrence)
                 n, isnew = Note.objects.get_or_create(content_type=occurrence_type, object_id=pk)
                 if isnew:
                     n.createdby = request.user
@@ -136,7 +136,7 @@ def occurrence_view(request, event_pk, pk,
         form = form_class(instance=occurrence, user=request.user)
 
     return render_to_response(template,
-        dict(occurrence=occurrence, form=form, notes=occurrence.notes.all()),
+        dict(occurrence=occurrence, form=form, notes=occurrence.notes.all(), item=occurrence, item_type=occurrence_type),
         context_instance=RequestContext(request))
 
 
