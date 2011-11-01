@@ -1,6 +1,6 @@
 {% extends "temporale/base.html" %}{% load i18n %}{% csrf_token %}
 {% block title %}{% trans "Event Occurrence" %}{% endblock %}
-{% block calendar_content %}
+{% block temporale_content %}
      <h2>{% trans "Event Occurrence" %}</h2>
      <h3>
          <a href="{{ occurrence.event.get_absolute_url }}">{{ occurrence.title }}</a>

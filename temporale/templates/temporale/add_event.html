@@ -1,6 +1,6 @@
 {% extends "temporale/base.html" %}{% load i18n %}{% csrf_token %}
 {% block title %}{% trans "Add Event" %}{% endblock %}
-{% block calendar_content %}
+{% block temporale_content %}
     <h2>{% trans "Add Event" %}</h2>
     {{ event_form.non_field_errors }}
     {{ recurring_form.non_field_errors }}
@@ -8,7 +8,7 @@
     <p>{% trans "Please fix any errors." %}</p>
     {% endif %}
     <form method="post" action="." name="add_event">
-      {% include "snippets/notes.html" %}
+      {% include "adhesive/notes.html" %}
         <p class="field_wrapper">
           <span class="label"><a href="../" class="button"><span class="ui-icon ui-icon-arrowthick-1-w"></span> {% trans "Back" %} </a></span>
           <span class="field">

@@ -1,6 +1,6 @@
 {% extends "temporale/base.html" %}{% load i18n %}
 {% block title %}{% trans "Monthly View" %}{% endblock %}
-{% block calendar_content %}
+{% block temporale_content %}
     <h2>{% trans "Monthly View" %}</h2>
     <h3 class="center">
         <a href="{% url temporale-monthly-view last_month.year last_month.month %}" class="left" title="{% trans "Previous Month" %}">

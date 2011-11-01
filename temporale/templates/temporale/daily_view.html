@@ -1,6 +1,6 @@
 {% extends "temporale/base.html" %}{% load i18n %}
 {% block title %}{% trans "Daily View" %}{% endblock %}
-{% block calendar_content %}
+{% block temporale_content %}
     <h2>{% trans "Daily View" %}</h2>
     <h3 class="center">
         <a href="{% url temporale-daily-view prev_day.year prev_day.month prev_day.day %}" class="left" title="{% trans "Previous Day" %}">

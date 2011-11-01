@@ -1,6 +1,6 @@
 {% extends "temporale/base.html" %}{% load i18n %}{% csrf_token %}
 {% block title %}{% blocktrans %}Event: {{ event }}{% endblocktrans %}{% endblock %}
-{% block calendar_content %}
+{% block temporale_content %}
     <h2>{% trans "Event" %} {{ event }}</h2>
     <h3>{% trans "Event Details" %}</h3>
     <form action="." name="update_event" method="post">
