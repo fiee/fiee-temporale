@@ -1,0 +1,17 @@
+body {
+    color: #000;
+    background: #FFF;
+    margin: 0px;
+    padding: 0px;
+}
+
+#ft, #mainmenu, #breadcrumbs,
+.menu, .dontprint, .noprint {
+    display: none;
+}
+
+#logo {
+  position: relative;
+  width: 100%;
+  background-image: url();
+}

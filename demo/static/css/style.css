@@ -1,0 +1,53 @@
+h3, h4 {
+  transform-origin: bottom left;
+  transform: rotate(-2deg);
+  -webkit-transform-origin: bottom left;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform-origin: bottom left;
+  -moz-transform: rotate(-2deg);
+  behavior: url(/static/css/PIE.htc);
+}
+
+#bd img:hover {
+	transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+}
+
+#bd a[rel="gallery"], 
+#bd a[rel="gallery"]:hover {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+a[rel="gallery"] img {
+  box-shadow: 0.25em 0.25em 1em #333;
+  -moz-box-shadow: 0.25em 0.25em 1em #333;
+  behavior: url(/static/css/PIE.htc);
+}
+
+.image .caption {
+	display: none;
+}
+
+#hd, #ft {
+  font-family: Calibri, Frutiger, Helvetica, Arial, sans-serif;
+  font-size: smaller;
+  min-height: 50px;
+  width: 100%;
+  background-repeat: no-repeat;
+  z-index: 60;
+}
+
+#ft {
+  padding-left: 1em;
+}
+
+#bd {
+	padding: 1em;
+  z-index: 50;
+}
+
+#right-column {
+  z-index: 50;
+}

@@ -1,0 +1,136 @@
+/* Menus */
+
+#breadcrumbs ul {
+  font-family: Calibri, Frutiger, Helvetica, Arial, sans-serif;
+  font-size: 80%;
+  clear: both;
+  float: none;
+  display: block;
+  margin: 0;
+}
+
+#breadcrumbs ul li {
+  list-style: none !important;
+  float: left;
+  display: inline-block;
+  margin: 0;
+}
+
+#breadcrumbs ul li:after {
+  content: "» ";
+}
+
+/* *** Menu *** */
+
+/* first level */
+
+ul#mainmenu {
+  font-family: Calibri, Frutiger, Helvetica, Arial, sans-serif;
+  font-size: 120%;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top:0;
+  clear: both;
+  height: 2em;
+  opacity: 0.9;
+  background-color: #eee;
+  background: linear-gradient(90deg, #ddd, #eee);
+  background: -moz-linear-gradient(90deg, #ddd, #eee);
+  background: -webkit-gradient(linear, center top, center bottom, from(#eee), to(#ddd));
+  border: 1px solid #fc0;
+  border-top: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -moz-border-radius-bottomright: 4px;
+  color: #212121;
+  box-shadow: 0.25em 0.25em 1em #333;
+  -webkit-box-shadow: 0.25em 0.25em 1em #333;
+  -moz-box-shadow: 0.25em 0.25em 1em #333;
+  behavior: url(/static/css/PIE.htc);
+  z-index: 90;
+}
+
+ul#mainmenu li {
+  list-style: none;
+  list-style-type: none;
+  list-style-position: outside;
+  cursor: pointer;
+  display: inline;
+  float: left;
+  margin: 0;
+  padding: 0.5em 0.75em 0.25em 0;
+  min-width: 1em;
+}
+
+ul#mainmenu > li {
+  height: 1.25em;
+}
+
+ul#mainmenu li:hover {
+  background-color: #ace;
+}
+
+ul#mainmenu a {
+  display: block;
+  color: black;
+  padding-left: 0.5em;
+}
+
+ul#mainmenu > li > a {
+  height: 1.75em;
+}
+
+/* second level */
+
+ul#mainmenu ul { /* each further submenu */
+  background-color: #DADADA;
+  border: 1px solid #fc0;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-top-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  margin: -0.25em 0 0 0;
+  padding: 0;
+  display: none;
+  min-width: 6em;
+  white-space:nowrap;
+  box-shadow: 0.25em 0.25em 1em #333;
+  -webkit-box-shadow: 0.25em 0.25em 1em #333;
+  -moz-box-shadow: 0.25em 0.25em 1em #333;
+  behavior: url(/static/css/PIE.htc);
+  z-index: 90;
+}
+
+ul#mainmenu > li > ul { /* 2nd level only */
+  border-top: none;
+  border-top-right-radius: 0;
+  -moz-border-radius-topright: 4px;
+}
+
+ul#mainmenu > li:hover > ul {
+  display: block;
+  position: absolute;
+  z-index: 99;
+}
+
+ul#mainmenu ul li {
+  display: list-item;
+  position: relative;
+  float: none;
+}
+
+/* further levels */
+
+ul#mainmenu ul li:hover ul {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+ul#mainmenu li.hidden {
+  padding: 0;
+  border: none;
+}

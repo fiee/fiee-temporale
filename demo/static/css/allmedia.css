@@ -1,0 +1,206 @@
+html[lang|="de"] {
+  quotes: "\201E" "\201C" "\201A" "\2018";
+}
+
+html[lang|="en"] {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+html[lang|="fr"] {
+  quotes: "\00AB" "\00BB" "\2039" "\203A";
+}
+
+body {
+  font-size: 85%;
+  font-family: "Linux Libertine", Cambria, Times, "Times New Roman", serif;
+}
+
+h1, h2, h3 {
+  font-style: italic;
+  font-weight: normal;
+  clear: both;
+}
+
+h2, h3, h4, h5 {
+  margin-top: 0.75em;
+  margin-bottom: 0.25em;
+  line-height: 1.25;
+  /* border-top: 1px solid #ddd; */
+  float: none;
+}
+
+h1 {
+  font-size: 200%;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 220%;
+  margin-top: 0;
+  border-top: none;
+}
+
+h3 {
+  font-size: 150%;
+}
+
+h3:first-child {
+  border-top: none;
+}
+
+h4 {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+h5, th, dt {
+  font-weight: bold;
+}
+
+p, li, td, dd {
+  line-height: 1.3;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:active {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+blockquote {
+  padding-left: 1em;
+}
+
+.kleiner {
+  font-size: smaller;
+}
+
+#bd img {
+    max-width: 100%;
+}
+
+.schatten {
+  box-shadow: 0.25em 0.25em 2em #333;
+  -moz-box-shadow: 0.25em 0.25em 2em #333;
+  behavior: url(/static/css/PIE.htc);
+}
+
+.hochkant {
+  transform-origin: bottom left;
+  transform: rotate(-90deg) translateX(-1.5em) translateY(-1em);
+  -webkit-transform-origin: bottom left;
+  -webkit-transform: rotate(-90deg) translateX(-1.5em) translateY(-1em);
+  -moz-transform-origin: bottom left;
+  -moz-transform: rotate(-90deg) translateX(-1.5em) translateY(-1em);
+  behavior: url(/static/css/PIE.htc);
+}
+
+img.fullsize {
+  max-height: 50%;
+  max-width: 100%;
+}
+
+img.intext {
+  float: right;
+  max-width: 50%;
+}
+
+img.sidebar {
+  position: relative;
+  float: right;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+img.main {
+  max-width: 66%;
+  max-height: 33%;
+}
+
+.hidden, .type {
+  display: none;
+} 
+
+#logo {
+  background-repeat: no-repeat;
+  background-position: right top;
+  height: 54px;
+}
+
+/* Listen */
+
+#bd p, #bd ul, #bd ol, #bd dl {
+  margin-bottom: 0.5em;
+}
+
+#bd ul li, #bd dl dt, #bd ol li {
+  display: list-item;
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-left: 1.25em;
+}
+
+#bd ol li {
+  list-style-type: decimal;
+}
+
+#bd dl dt {
+  font-style: italic;
+}
+
+#bd dl dd {
+  margin-left: 1.25em;
+}
+
+/* Tabelle */
+
+table {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+thead, tbody {
+  border-bottom: 1px solid #eee;
+}
+
+td, th {
+  padding: 0.5em 0.5em 0.5em 0;
+  text-align: left;
+  vertical-align: top;  
+}
+
+table.referenzen th,
+table.referenzen td
+{
+  border-left: 0;
+  border-right: 0;
+  border-color: #eee;
+}
+
+/* TeX */
+
+.tex-e, .tex-a {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 85%;
+}
+
+.tex-e {
+  top: 0.25em;
+  left: -0.125em;
+}
+
+.tex-a {
+  top: -0.33em;
+  left: -0.25em;
+}

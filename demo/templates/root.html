@@ -1,58 +1,57 @@
 {% load cache i18n %}{% get_current_language as LANGUAGE_CODE %}<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>project_name :: {% block title %}{% trans "Home" %}{% endblock %}</title>
-  <link rel="stylesheet" type="text/css" media="all" href="http://yui.yahooapis.com/2.9.0/build/reset-fonts-grids/reset-fonts-grids.css">
-  <link rel="stylesheet" type="text/css" media="all" href="http://yui.yahooapis.com/2.9.0/build/base/base.css">
-  <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ STATIC_URL }}css/style.css" />
-  <link rel="stylesheet" type="text/css" media="print" href="{{ STATIC_URL }}css/print.css" />
-  <!-- <link rel="sitemap" href="/sitemap.xml" type="text/xml" /> -->
-  <!-- <link rel="alternate" type="application/rss+xml" title="{% trans "project_name events" %}" href="/calendar/feed/calendar/upcoming/1/"> -->
-  <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="{{ STATIC_URL }}favicon.ico" type="image/icon" />
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
-  </script>
-  {% block extra_head %}
-  {% endblock %}
-</head>
-<body>
-  <div id="doc4" class="yui-t4">
-    {% block header %}
-    <div id="hd">
-      {% block hd %}
-        <h1>{% trans "Biographies" %}</h1>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>{% block title %}fiëé témporâle{% endblock %}</title>
+      <link rel="stylesheet" type="text/css" media="all" href="http://yui.yahooapis.com/2.9.0/build/reset-fonts-grids/reset-fonts-grids.css" />
+      <link rel="stylesheet" type="text/css" media="all" href="http://yui.yahooapis.com/2.9.0/build/base/base.css" />
+      <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/allmedia.css" />
+      <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ STATIC_URL }}css/style.css" />
+      <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ STATIC_URL }}css/menu.css" />
+      <link rel="stylesheet" type="text/css" media="print" href="{{ STATIC_URL }}css/print.css" />
+      <link rel="sitemap" href="/sitemap.xml" type="text/xml" />
+      <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" type="image/png" />
+      <link rel="icon" href="{{ STATIC_URL }}favicon.ico" type="image/png" />
+      <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+      {% block extra_head %}
       {% endblock %}
-      {% block hd_menu %}
-        {% include "menus/hd.html" %}
+      {% block extrahead %}
       {% endblock %}
-    </div>
-    {% endblock %}
-    <div id="bd">
-      {% block bd %}
-      <div id="yui-main">
-        <div class="yui-b">
-          {% block main_content %}
-          <h2>{% trans "Welcome!" %}</h2>
-          {% endblock %}
+    </head>
+    <body>
+        <div id="doc" class="yui-t5">
+            <div id="hd">
+                {% block header %}
+                <div id="logo"></div>
+                <div class="menu">
+                  {% block navigation %}
+                    {% include "menus/hd.html" %}
+                  {% endblock %}
+                </div>
+                {% endblock %}
+            </div>
+            <div id="bd">
+                {% block body %}
+                <div id="yui-main">
+                    <div class="yui-b">
+        						{% block maincontent %}
+        						{% endblock %}
+                    {% block main_content %}
+                    {% endblock %}
+                    </div>
+                </div>
+                <div class="yui-b" id="right-column">
+                  {% block sidebar %}
+                    {% include "snippets/languageselect.html" %}
+                    {% include "snippets/messages.html" %}
+					        {% endblock %}
+                </div>
+                {% endblock %}
+            </div>
+            <div id="ft">
+            {% block footer %}
+            {% endblock %}
+            </div>
         </div>
-      </div>
-      <div id="sidebar" class="yui-b">
-        {% block side_menu %}
-          {% include "menus/side.html" %}
-        {% endblock %}
-        {% block sidebar %}
-          {% include "snippets/messages.html" %}
-        {% endblock %}
-      </div>
-      {% endblock %}
-    </div>
-    <div id="ft">
-      {% block ft %}
-      {% include "snippets/languageselect.html" %}
-      {% endblock %}
-    </div>
-  </div>
-</body>
+    </body>
 </html>
