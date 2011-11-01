@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='demo-index'),
     url(r'^temporale/', include('temporale.urls')),
+    url(r'^notes/', include('adhesive.urls')),
     url(r'^bio/', include('demo.biography.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^i18n/', include('django.conf.urls.i18n')),
