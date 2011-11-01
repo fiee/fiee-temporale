@@ -85,6 +85,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    rel('static/'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -135,6 +136,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'registration', # django-registration, needed for anonymous user
+    #'siteprofile', # fiee-dorsale siteprofiles
     'adhesive', # fiee-adhesive, sticky notes
     'temporale', # fiee-temporale
     'biography', # demo
