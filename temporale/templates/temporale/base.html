@@ -1,23 +1,25 @@
-{% extends "root.html" %}
-{% load i18n adminmedia %}
+{% extends "root.html" %}{% load i18n %}
 
-{% if "calendar" in site_profile.modlist %}
+{% if not site_profile or "temporale" in site_profile.modlist %}
 
-{% block title %}{% trans "Calendar" %}{% endblock %}
+{% block title %}{% trans "fiëé temporâle" %}{% endblock %}
 
 {% block extra_head %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+{% include "adhesive/head.html" %}
 {# CSS and JavaScript for date picker #}
-<link rel="stylesheet" type="text/css" href="{{ admin_media_prefix }}css/widgets.css" />   
-<script src="{{ admin_media_prefix }}js/core.js" type="text/javascript"></script> 
-<script src="{{ admin_media_prefix }}js/calendar.js" type="text/javascript"></script> 
-<script src="{{ admin_media_prefix }}js/admin/DateTimeShortcuts.js" type="text/javascript"></script> 
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admin/css/widgets.css" />   
+<script src="{{ STATIC_URL }}admin/js/core.js" type="text/javascript"></script> 
+<script src="{{ STATIC_URL }}admin/js/calendar.js" type="text/javascript"></script> 
+<script src="{{ STATIC_URL }}admin/js/admin/DateTimeShortcuts.js" type="text/javascript"></script> 
 {% endblock %}
 
 {% endif %}
 
 {% block main_content %}
-{% if "calendar" in site_profile.modlist %}
-{% block calendar_content %}{% endblock %}
+{% if not site_profile or "temporale" in site_profile.modlist %}
+{% block temporale_content %}{% endblock %}
 {% else %}
 <p>{% trans "Sorry, you’re not cleared for the <em>temporale</em> module!" %}</p>
 {% endif %}
