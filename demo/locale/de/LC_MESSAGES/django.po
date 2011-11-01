@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fiëé témporâle demo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 15:21-0500\n"
-"PO-Revision-Date: 2011-10-28 22:22+0100\n"
+"POT-Creation-Date: 2011-11-01 10:04-0500\n"
+"PO-Revision-Date: 2011-11-01 16:07+0100\n"
 "Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
 "Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
 "Language: \n"
@@ -34,26 +34,13 @@ msgstr "Fehler 500: Server-Fehler"
 msgid "Sorry, this page is temporalily unavailable due to a server misconfiguration."
 msgstr "Entschuldigung, diese Seite ist wegen einer Fehlkonfiguration des Servers vorübergehend nicht verfügbar."
 
-#: templates/root.html:6
-#: templates/menus/hd.html:7
-msgid "Home"
-msgstr "Startseite"
-
-#: templates/root.html:12
-msgid "project_name events"
-msgstr "fiëé módulaîre Termine"
-
-#: templates/root.html:25
-msgid "Biographies"
-msgstr "Biographien"
-
-#: templates/root.html:37
-msgid "Welcome!"
-msgstr "Willkommen!"
-
 #: templates/menus/hd.html:6
 msgid "About..."
 msgstr "Über..."
+
+#: templates/menus/hd.html:7
+msgid "Home"
+msgstr "Startseite"
 
 #: templates/menus/hd.html:9
 msgid "Logout"
@@ -70,6 +57,55 @@ msgstr "Verwaltung"
 #: templates/menus/hd.html:15
 msgid "Login"
 msgstr "Anmelden"
+
+#: templates/menus/hd.html:24
+msgid "Today"
+msgstr "Heute"
+
+#: templates/menus/hd.html:25
+msgid "Events"
+msgstr "Termine"
+
+#: templates/menus/hd.html:26
+msgid "Add Event"
+msgstr "Termin hinzufügen"
+
+#: templates/registration/activate.html:6
+msgid "Activation failed"
+msgstr "Anmeldung fehlgeschlagen!"
+
+#: templates/registration/activate.html:7
+msgid "Sorry, you provided a wrong activation key."
+msgstr "Sie haben leider einen falschen Aktivierungscode übergeben."
+
+#: templates/registration/activation_email.txt:2
+#, python-format
+msgid ""
+"\n"
+"Please activate your registration with %(site.name)s within %(expiration_days)s days by clicking the following link:\n"
+msgstr ""
+"\n"
+"Bitte aktivieren Sie Ihre Registrierung auf „%(site.name)s“ innerhalb von %(expiration_days)s Tagen, indem Sie auf den folgenden Link klicken:\n"
+
+#: templates/registration/activation_email_subject.txt:2
+msgid "Activate your account"
+msgstr "Aktivieren Sie Ihr Benutzerkonto"
+
+#: templates/registration/registration_closed.html:6
+msgid "Registration is closed"
+msgstr "Registrierung ist geschlossen"
+
+#: templates/registration/registration_closed.html:7
+msgid "We’re sorry, but at the moment we can’t accept new users."
+msgstr "Entschuldigung, zur Zeit können wir keine neuen Benutzerkonten registrieren."
+
+#: templates/registration/registration_complete.html:6
+msgid "Thank you for registering"
+msgstr "Vielen Dank für Ihre Registrierung"
+
+#: templates/registration/registration_complete.html:7
+msgid "We have send an E-mail with an activation link to the address you provided."
+msgstr "Wir haben Ihnen eine E-Mail mit einem Aktivierungs-Link an die angegebene Adresse geschickt."
 
 #: templates/snippets/languageselect.html:11
 msgid "Change language"
@@ -95,6 +131,15 @@ msgstr "Ende"
 msgid "New Item"
 msgstr "Neuer Eintrag"
 
+#~ msgid "project_name events"
+#~ msgstr "fiëé módulaîre Termine"
+
+#~ msgid "Biographies"
+#~ msgstr "Biographien"
+
+#~ msgid "Welcome!"
+#~ msgstr "Willkommen!"
+
 #~ msgid "project_name"
 #~ msgstr "fiëé módulaîre"
 
@@ -109,9 +154,6 @@ msgstr "Neuer Eintrag"
 
 #~ msgid "Event"
 #~ msgstr "Termin"
-
-#~ msgid "Events"
-#~ msgstr "Termine"
 
 #~ msgid "Calendar"
 #~ msgstr "Kalender"
@@ -260,9 +302,6 @@ msgstr "Neuer Eintrag"
 
 #~ msgid "ReStructured Texts"
 #~ msgstr "ReStructured Texts"
-
-#~ msgid "Add Event"
-#~ msgstr "Termin hinzufügen"
 
 #~ msgid "%(start_date)s"
 #~ msgstr "%(start_date)s"

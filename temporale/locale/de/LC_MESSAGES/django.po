@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-temporale\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 22:21+0200\n"
-"PO-Revision-Date: 2011-10-28 22:23+0100\n"
+"POT-Creation-Date: 2011-11-01 16:04+0100\n"
+"PO-Revision-Date: 2011-11-01 16:08+0100\n"
 "Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
 "Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
 "Language: \n"
@@ -398,7 +398,7 @@ msgstr "Vorkommen"
 msgid "Can view occurrence"
 msgstr "Darf Vorkommen ansehen"
 
-#: models.py:311
+#: models.py:313
 msgid "Generic event"
 msgstr "Allgemeines Ereignis"
 
@@ -410,7 +410,7 @@ msgstr "Deutsch"
 msgid "English"
 msgstr "Englisch"
 
-#: utils.py:213
+#: utils.py:221
 msgid "whole day"
 msgstr "ganztägig"
 
@@ -434,11 +434,11 @@ msgstr "Zurück"
 msgid "Save"
 msgstr "Sichern"
 
-#: templates/temporale/base.html:6
-msgid "Calendar"
-msgstr "Kalender"
+#: templates/temporale/base.html:5
+msgid "fiëé temporâle"
+msgstr "fiëé temporâle"
 
-#: templates/temporale/base.html:22
+#: templates/temporale/base.html:24
 msgid "Sorry, you’re not cleared for the <em>temporale</em> module!"
 msgstr "Entschuldigung, das <em>Kalender</em>-Modul ist nicht für Sie freigeschaltet!"
 
@@ -625,6 +625,9 @@ msgstr "Ende"
 #, python-format
 msgid "<p>No events occurring in %(year)s</p>"
 msgstr "<p>Im Jahr %(year)s gibt es keine Ereignisse</p>"
+
+#~ msgid "Calendar"
+#~ msgstr "Kalender"
 
 #~ msgid "None"
 #~ msgstr "Keine"

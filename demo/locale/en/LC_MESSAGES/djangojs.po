@@ -1,0 +1,117 @@
+# fiëé témporâle demo.
+# Copyright (C) 2011 Henning Hraban Ramm
+# This file is distributed under the same license as the fiee-temporale package.
+# Henning Hraban Ramm <hraban@fiee.net>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fiëé témporâle demo\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-01 10:04-0500\n"
+"PO-Revision-Date: 2011-11-01 16:10+0100\n"
+"Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
+"Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: static_collection/admin/js/SelectFilter2.js:77
+msgid "Clear all"
+msgstr "Clear all"
+
+#: static_collection/admin/js/actions.js:18
+msgid "%(sel)s of %(cnt)s selected"
+msgid_plural "%(sel)s of %(cnt)s selected"
+msgstr[0] "%(sel)s of %(cnt)s selected"
+msgstr[1] "%(sel)s of %(cnt)s selected"
+
+#: static_collection/admin/js/actions.js:109
+msgid "You have unsaved changes on individual editable fields. If you run an action, your unsaved changes will be lost."
+msgstr "You have unsaved changes on individual editable fields. If you run an action, your unsaved changes will be lost."
+
+#: static_collection/admin/js/actions.js:121
+#: static_collection/admin/js/actions.min.js:6
+msgid "You have selected an action, but you haven't saved your changes to individual fields yet. Please click OK to save. You'll need to re-run the action."
+msgstr "You have selected an action, but you haven't saved your changes to individual fields yet. Please click OK to save. You'll need to re-run the action."
+
+#: static_collection/admin/js/actions.js:123
+#: static_collection/admin/js/actions.min.js:6
+msgid "You have selected an action, and you haven't made any changes on individual fields. You're probably looking for the Go button rather than the Save button."
+msgstr "You have selected an action, and you haven't made any changes on individual fields. You're probably looking for the Go button rather than the Save button."
+
+#: static_collection/admin/js/calendar.js:24
+#: static_collection/admin/js/dateparse.js:32
+msgid "January February March April May June July August September October November December"
+msgstr "January February March April May June July August September October November December"
+
+#: static_collection/admin/js/calendar.js:25
+msgid "S M T W T F S"
+msgstr "S M T W T F S"
+
+#: static_collection/admin/js/collapse.js:9
+#: static_collection/admin/js/collapse.js:21
+#: static_collection/admin/js/collapse.min.js:1
+msgid "Show"
+msgstr "Show"
+
+#: static_collection/admin/js/collapse.js:16
+#: static_collection/admin/js/collapse.min.js:1
+msgid "Hide"
+msgstr "Hide"
+
+#: static_collection/admin/js/dateparse.js:33
+msgid "Sunday Monday Tuesday Wednesday Thursday Friday Saturday"
+msgstr "Sunday Monday Tuesday Wednesday Thursday Friday Saturday"
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:49
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:84
+msgid "Now"
+msgstr "Now"
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:53
+msgid "Clock"
+msgstr "Clock"
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:80
+msgid "Choose a time"
+msgstr "Choose a time"
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:85
+msgid "Midnight"
+msgstr "Midnight"
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:86
+msgid "6 a.m."
+msgstr "6 a.m."
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:87
+msgid "Noon"
+msgstr "Noon"
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:91
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:188
+msgid "Cancel"
+msgstr "Cancel"
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:133
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:182
+msgid "Today"
+msgstr "Today"
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:137
+msgid "Calendar"
+msgstr "Calendar"
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:180
+msgid "Yesterday"
+msgstr "Yesterday"
+
+#: static_collection/admin/js/admin/DateTimeShortcuts.js:184
+msgid "Tomorrow"
+msgstr "Tomorrow"
+
