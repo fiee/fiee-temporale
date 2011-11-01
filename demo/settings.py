@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
-import sys
+import os, sys
 # Django settings for demo project.
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_NAME = os.path.split(PROJECT_ROOT)[-1]
+
+rel = lambda p: os.path.normpath(os.path.join(PROJECT_ROOT, p)) # this is release and virtualenv dependent
+#rootrel = lambda p: os.path.normpath(os.path.join('/var/www', PROJECT_NAME, p)) # this is not
 
 sys.path = ['..',] + sys.path # find temporale
 
@@ -56,18 +61,18 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = rel('static')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = rel('static_collection')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
