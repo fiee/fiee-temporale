@@ -38,10 +38,10 @@ You don’t need to change your models at all, but it’s easier if you add::
 Dependencies
 ------------
 
-* Django 1.2 (may work with 1.1.) with included contributions
+* Django 1.6 with included contributions
 * django-registration_ (or compatible)
 * fiee-dorsale_
-* python-dateutil_ 1.5 (not 2.0 or above, that's only for Python 3!)
+* python-dateutil_ 1.5+ (not 2.0 or above, that's only for Python 3!)
 
 
 Known Issues

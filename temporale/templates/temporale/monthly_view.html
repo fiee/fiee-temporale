@@ -3,14 +3,14 @@
 {% block temporale_content %}
     <h2>{% trans "Monthly View" %}</h2>
     <h3 class="center">
-        <a href="{% url temporale-monthly-view last_month.year last_month.month %}" class="left" title="{% trans "Previous Month" %}">
+        <a href="{% url 'temporale-monthly-view last_month.year' last_month.month %}" class="left" title="{% trans "Previous Month" %}">
           <span class="ui-icon ui-icon-circle-triangle-w">&lArr;</span>
         </a>
         <span>{{ this_month|date:"F" }} 
-          <a title="{% blocktrans with this_month.year as year %}View {{ year}}{% endblocktrans %}" href="{% url temporale-yearly-view this_month.year %}">
+          <a title="{% blocktrans with this_month.year as year %}View {{ year}}{% endblocktrans %}" href="{% url 'temporale-yearly-view' this_month.year %}">
             {{ this_month|date:"Y" }}</a>
         </span>
-        <a href="{% url temporale-monthly-view next_month.year next_month.month %}" class="right" title="{% trans "Next Month" %}">
+        <a href="{% url 'temporale-monthly-view' next_month.year next_month.month %}" class="right" title="{% trans "Next Month" %}">
           <span class="ui-icon ui-icon-circle-triangle-e">&rArr;</span>
         </a>
     </h3>
@@ -30,7 +30,7 @@
                 <td{% ifequal day today.day  %} class="today"{% endifequal %}>
                 {% if day %}
                     <div class="day-ordinal">
-                        <a href="{% url temporale-daily-view today.year today.month day %}">{{ day }}</a>
+                        <a href="{% url 'temporale-daily-view' today.year today.month day %}">{{ day }}</a>
                     </div>
                     {% if items %}
                     <ul>

@@ -3,11 +3,11 @@
 {% block temporale_content %}
     <h2>{% trans "Yearly View" %}</h2>
     <h3 class="center">
-        <a href="{% url temporale-yearly-view last_year %}" class="left" title="{% trans "Previous Year" %}">
+        <a href="{% url 'temporale-yearly-view' last_year %}" class="left" title="{% trans "Previous Year" %}">
           <span class="ui-icon ui-icon-circle-triangle-w">&lArr;</span>
         </a>
         <span>{{ year }}</span>
-        <a href="{% url temporale-yearly-view next_year %}" class="right" title="{% trans "Next Year" %}">
+        <a href="{% url 'temporale-yearly-view' next_year %}" class="right" title="{% trans "Next Year" %}">
           <span class="ui-icon ui-icon-circle-triangle-e">&rArr;</span>
         </a>
     </h3>
@@ -27,7 +27,7 @@
         {% for dt,occurrences in by_month %}
         <tr class="month-divider">
             <th rowspan="{{ occurrences|length }}">
-                <a href="{% url temporale-monthly-view dt.year dt.month %}">
+                <a href="{% url 'temporale-monthly-view' dt.year dt.month %}">
                     {{ dt|date:"F" }}</a>
             </th>
             {% for o in occurrences %}

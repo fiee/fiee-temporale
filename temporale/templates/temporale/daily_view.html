@@ -3,11 +3,11 @@
 {% block temporale_content %}
     <h2>{% trans "Daily View" %}</h2>
     <h3 class="center">
-        <a href="{% url temporale-daily-view prev_day.year prev_day.month prev_day.day %}" class="left" title="{% trans "Previous Day" %}">
+        <a href="{% url 'temporale-daily-view' prev_day.year prev_day.month prev_day.day %}" class="left" title="{% trans "Previous Day" %}">
           <span class="ui-icon ui-icon-circle-triangle-w">&lArr;</span>
         </a>
         <span>{{ day|date:"l" }}, {{ day|date:"DATE_FORMAT" }}</span>
-        <a href="{% url temporale-daily-view next_day.year next_day.month next_day.day %}" class="right" title="{% trans "Next Day" %}">
+        <a href="{% url 'temporale-daily-view' next_day.year next_day.month next_day.day %}" class="right" title="{% trans "Next Day" %}">
           <span class="ui-icon ui-icon-circle-triangle-e">&rArr;</span>
         </a>
     </h3>
@@ -21,7 +21,7 @@
         <tbody>
             {% for tm,cells in timeslots %}
             <tr>
-                <th><a href="{% url temporale-add-event %}?dtstart={{ day.date.isoformat }}T{{ tm }}">{{ tm }}</a></th>
+                <th><a href="{% url 'temporale-add-event' %}?dtstart={{ day.date.isoformat }}T{{ tm }}">{{ tm }}</a></th>
                 {% for cell in cells %}
                 <td{% if cell.event_class %} class="{{cell.event_class}}"{% endif %}>{{ cell|safe }}</td>    
                 {% endfor %}

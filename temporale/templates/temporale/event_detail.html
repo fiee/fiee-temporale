@@ -21,7 +21,7 @@
     <ol class="occurrencelist">
         {% for o in event.occurrence_set.all %}
         <li>
-            <a href="{% url temporale-occurrence event.id o.id %}">
+            <a href="{% url 'temporale-occurrence' event.id o.id %}">
                 {{ o.start_time|date:"DATETIME_FORMAT" }} &ndash; 
                 {{ o.end_time|date:"DATETIME_FORMAT" }}</a>
         </li>
