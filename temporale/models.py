@@ -198,14 +198,13 @@ class Occurrence(DorsaleAnnotatedBaseModel):
     @property
     def content_object(self):
         return self.event.content_object
-    
+
     def wholeday(self):
         """
-        Occurrence lasts the whole day? 
+        Occurrence lasts the whole day?
         (time of ``start_time`` and ``end_time`` are both 00:00:00)
         """
         return (self.start_time.time() == time(0,0) == self.end_time.time())
-
 
 
 def create_event(title, event_type, description='', start_time=None,
@@ -232,7 +231,7 @@ def create_event(title, event_type, description='', start_time=None,
 
     ``note``
         some remark that you’d like to attach as a note (see `fiee-adhesive`)
-        
+
     ``content_object``
         the object where you want to attach your new event
 
@@ -240,7 +239,7 @@ def create_event(title, event_type, description='', start_time=None,
         follow the ``dateutils`` API (see http://labix.org/python-dateutil)
     """
     from temporale.conf import settings as temporale_settings
-    
+
     model_type = ContentType.objects.get_for_model(content_object)
 
     if isinstance(event_type, tuple):
@@ -279,13 +278,14 @@ def create_event(title, event_type, description='', start_time=None,
     event.add_occurrences(start_time, end_time, **rrule_params)
     return event
 
+
 def update_event(sender, **kwargs):
     """
     A callback for every object saved to be able to update events accordingly.
-    
-    This function handles only models that provide a `temporale_info` method, 
+
+    This function handles only models that provide a `temporale_info` method,
     returning a list/tuple of dicts with an entry for every "event" field of that model.
-    
+
     Such a dict looks like
     {
     'title'          : self.title,     # unicode, required
@@ -300,7 +300,7 @@ def update_event(sender, **kwargs):
     if not hasattr(sender, 'temporale_info'):
         return False
     instance = kwargs['instance']
-    infos = instance.temporale_info()    
+    infos = instance.temporale_info()
     evts = None
     if not kwargs['created']: # model was saved before
         model_type = ContentType.objects.get_for_model(sender)
@@ -337,4 +337,3 @@ def update_event(sender, **kwargs):
 #                oc.save()
 
 post_save.connect(update_event)
-

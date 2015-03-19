@@ -151,6 +151,7 @@ def timeslot_offset_options(interval=temporale_settings.TIMESLOT_INTERVAL,
 default_timeslot_options = timeslot_options()
 default_timeslot_offset_options = timeslot_offset_options()
 
+
 class SplitDateTimeWidget(forms.MultiWidget):
     """
     A Widget that splits datetime input into a DatePickerWidget for dates and
@@ -170,6 +171,7 @@ class SplitDateTimeWidget(forms.MultiWidget):
             return [value.date(), value.time().replace(microsecond=0)]
 
         return [None, None]
+
 
 class MultipleIntegerField(forms.MultipleChoiceField):
     """
@@ -391,7 +393,6 @@ class MultipleOccurrenceForm(forms.Form):
             raise NotImplementedError(_(u'Unknown interval rule %s') % params['freq'])
 
         return params
-
 
 
 class EventForm(DorsaleBaseModelForm):

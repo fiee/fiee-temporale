@@ -26,13 +26,15 @@ if settings.FIRST_DAY_OF_WEEK is not None:
 elif temporale_settings.CALENDAR_FIRST_WEEKDAY is not None:
     calendar.setfirstweekday(temporale_settings.CALENDAR_FIRST_WEEKDAY)
 
+
 @login_required
 def event_listing(request, template='temporale/event_list.html', events=None,
     **extra_context):
     """
     View all ``events``.
 
-    If ``events`` is a queryset, clone it. If ``None``, default to all ``Event``s.
+    If ``events`` is a queryset, clone it.
+    If ``None``, default to all ``Event``s.
 
     Context parameters:
 
@@ -47,6 +49,7 @@ def event_listing(request, template='temporale/event_list.html', events=None,
     return render_to_response(template,
         dict(extra_context, events=events),
         context_instance=RequestContext(request))
+
 
 @login_required
 def event_view(request, pk, template='temporale/event_detail.html',
@@ -72,10 +75,13 @@ def event_view(request, pk, template='temporale/event_detail.html',
     event_type = ContentType.objects.get_for_model(event)
     if request.method == 'POST':
         if 'update_event' in request.POST:
-            event_form = event_form_class(request.POST, instance=event, user=request.user)
+            event_form = event_form_class(
+                request.POST, instance=event, user=request.user)
             if event_form.is_valid():
-                if not 'note' in event_form.cleaned_data and 'note' in request.POST:
-                    n, isnew = Note.objects.get_or_create(content_type=event_type, object_id=pk)
+                if not 'note' in event_form.cleaned_data \
+                        and 'note' in request.POST:
+                    n, isnew = Note.objects.get_or_create(
+                        content_type=event_type, object_id=pk)
                     if isnew:
                         n.createdby = request.user
                     n.note = request.POST['note']
@@ -84,7 +90,8 @@ def event_view(request, pk, template='temporale/event_detail.html',
                 event_form.save(event)
                 return http.HttpResponseRedirect(request.path)
         elif 'add_occurrence' in request.POST:
-            recurrence_form = recurrence_form_class(request.POST, user=request.user)
+            recurrence_form = recurrence_form_class(
+                request.POST, user=request.user)
             if recurrence_form.is_valid():
                 recurrence_form.save(event)
                 return http.HttpResponseRedirect(request.path)
@@ -94,14 +101,20 @@ def event_view(request, pk, template='temporale/event_detail.html',
     event_form = event_form or event_form_class(instance=event, user=request.user)
     if not recurrence_form:
         recurrence_form = recurrence_form_class(
-            initial=dict(dtstart=datetime.now(), 
+            initial=dict(dtstart=datetime.now(),
             user=request.user)
         )
 
     return render_to_response(template,
-        dict(event=event, event_form=event_form, 
-             recurrence_form=recurrence_form, notes=event.notes.all(), item=event, item_type=event_type),
+        dict(
+             event=event,
+             event_form=event_form,
+             recurrence_form=recurrence_form,
+             notes=event.notes.all(),
+             item=event,
+             item_type=event_type),
         context_instance=RequestContext(request))
+
 
 @login_required
 def occurrence_view(request, event_pk, pk,
@@ -124,7 +137,8 @@ def occurrence_view(request, event_pk, pk,
         form = form_class(request.POST, instance=occurrence, user=request.user)
         if form.is_valid():
             if not 'note' in form.cleaned_data and 'note' in request.POST:
-                n, isnew = Note.objects.get_or_create(content_type=occurrence_type, object_id=pk)
+                n, isnew = Note.objects.get_or_create(
+                    content_type=occurrence_type, object_id=pk)
                 if isnew:
                     n.createdby = request.user
                 n.note = request.POST['note']
@@ -136,7 +150,12 @@ def occurrence_view(request, event_pk, pk,
         form = form_class(instance=occurrence, user=request.user)
 
     return render_to_response(template,
-        dict(occurrence=occurrence, form=form, notes=occurrence.notes.all(), item=occurrence, item_type=occurrence_type),
+        dict(
+             occurrence=occurrence,
+             form=form,
+             notes=occurrence.notes.all(),
+             item=occurrence,
+             item_type=occurrence_type),
         context_instance=RequestContext(request))
 
 
@@ -150,8 +169,8 @@ def add_event(request, template='temporale/add_event.html',
     Context parameters:
 
     dtstart
-        a datetime.datetime object representing the GET request value if present,
-        otherwise None
+        a datetime.datetime object representing the GET request value
+        if present, otherwise None
 
     event_form
         a form object for updating the event
@@ -174,11 +193,12 @@ def add_event(request, template='temporale/add_event.html',
             try:
                 dtstart = parser.parse(request.GET['dtstart'])
             except:
-                # TODO A badly formatted date is passed to add_event
+                # TODO: A badly formatted date is passed to add_event
                 dtstart = datetime.now()
 
         event_form = event_form_class(user=request.user)
-        recurrence_form = recurrence_form_class(initial=dict(dtstart=dtstart), user=request.user)
+        recurrence_form = recurrence_form_class(
+            initial=dict(dtstart=dtstart), user=request.user)
 
     return render_to_response(template,
         dict(dtstart=dtstart, event_form=event_form, recurrence_form=recurrence_form),
@@ -291,7 +311,7 @@ def month_view(request, year, month, template='temporale/monthly_view.html', que
         a list of rows containing (day, items) cells, where day is the day of
         the month integer and items is a (potentially empty) list of occurrence
         for the day
-        
+
     week
         localized list of weekdays, depending on FIRST_DAY_OF_WEEK
 
@@ -324,7 +344,7 @@ def month_view(request, year, month, template='temporale/monthly_view.html', que
         (dom, list(items))
         for dom,items in itertools.groupby(occurrences, lambda o: o.start_time.day)
     ])
-    
+
     weekdays = range(8)
     for wd in forms.WEEKDAY_LONG:
         weekdays[wd[0]] = wd[1]
