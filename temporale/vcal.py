@@ -1,13 +1,9 @@
 import vobject
-from datetime import datetime, timedelta #, time
-
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
-from temporale.models import Event, Occurrence
-from temporale import utils, forms
-from temporale.conf import settings as temporale_settings
+from temporale.models import Event
 
 @login_required
 def events_as_vcal(request, events=None, **kwargs):
