@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 import os
 
 setup(name='fiee-temporale',
-      version='0.0.2a1',
+      version='0.0.3',
       description=u'Generic events for your django models',
       keywords='event date calendar generic attachment',
       author='Henning Hraban Ramm',
@@ -28,6 +28,6 @@ setup(name='fiee-temporale',
                    'Topic :: Utilities',
                    'Natural Language :: English',
                    'Natural Language :: German',],
-      install_requires=['Django>=1.6', 'vobject', 'django-registration', 'fiee-dorsale',],
+      install_requires=['Django>=1.8', 'vobject', 'django-registration', 'fiee-dorsale>=0.0.8',],
       zip_safe=False,
       )

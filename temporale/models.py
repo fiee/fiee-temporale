@@ -2,7 +2,7 @@
 from datetime import datetime, time
 from django.utils.translation import ugettext as _
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.fields import GenericForeignKey
 from django.db import models
 from django.db.models.signals import post_save
 from dorsale.managers import DorsaleSiteManager
@@ -43,7 +43,7 @@ class Event(DorsaleAnnotatedBaseModel):
 
     content_type = models.ForeignKey(ContentType, verbose_name=_('content type'), blank=True, null=True, help_text=_(u'Type of the related object'))
     object_id = models.IntegerField(_('object id'), blank=True, null=True, help_text=_(u'ID of the related object'))
-    content_object = generic.GenericForeignKey('content_type', 'object_id')
+    content_object = GenericForeignKey('content_type', 'object_id')
 
     class Meta:
         verbose_name = _('event')
