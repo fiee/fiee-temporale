@@ -314,7 +314,7 @@ def update_event(sender, **kwargs):
              'description': '',
              'start_time': datetime.now(),
              'end_time': datetime.now(),
-             'content_object': instance
+             'content_object': instance,
         }
         i.update(info)
         create_event(
