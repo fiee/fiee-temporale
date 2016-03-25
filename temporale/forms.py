@@ -401,6 +401,7 @@ class EventForm(DorsaleBaseModelForm):
     """
     class Meta:
         model = Event
+        fields = ['title', 'description', 'event_type', 'content_type', ]  # does this make sense at all?
 
     def __init__(self, *args, **kws):
         """
@@ -424,3 +425,4 @@ class SingleOccurrenceForm(DorsaleBaseModelForm):
 
     class Meta:
         model = Occurrence
+        fields = ['start_time', 'end_time', ] # 'event', 
