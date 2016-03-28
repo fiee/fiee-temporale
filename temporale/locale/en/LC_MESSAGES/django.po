@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fiëé temporâle\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-01 16:04+0100\n"
+"POT-Creation-Date: 2016-03-27 00:03+0600\n"
 "PO-Revision-Date: 2011-11-01 16:08+0100\n"
 "Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
 "Language-Team: David A. Krauth <dakrauth@gmail.com>\n"
@@ -92,8 +92,7 @@ msgstr "March"
 msgid "April"
 msgstr "April"
 
-#: forms.py:44
-#: forms.py:59
+#: forms.py:44 forms.py:59
 msgid "May"
 msgstr "May"
 
@@ -213,97 +212,76 @@ msgstr "By count"
 msgid "Until date"
 msgstr "Until date"
 
-#: forms.py:195
+#: forms.py:197
 msgid "Date"
 msgstr "Date"
 
-#: forms.py:200
-#: forms.py:206
-#: forms.py:212
-#: forms.py:222
-#: forms.py:230
-#: forms.py:239
-#: forms.py:246
-#: forms.py:254
-#: forms.py:262
-#: forms.py:272
-#: forms.py:277
-#: forms.py:281
-#: forms.py:286
-#: forms.py:294
-#: forms.py:297
-#: forms.py:299
-#: forms.py:301
-#: forms.py:420
-#: forms.py:422
-#: models.py:156
-#: models.py:157
-#: models.py:158
+#: forms.py:202 forms.py:208 forms.py:214 forms.py:224 forms.py:232
+#: forms.py:241 forms.py:248 forms.py:256 forms.py:264 forms.py:274
+#: forms.py:279 forms.py:283 forms.py:288 forms.py:296 forms.py:299
+#: forms.py:301 forms.py:303 forms.py:422 forms.py:424 models.py:156
+#: models.py:157 models.py:158
 msgid "-"
 msgstr "-"
 
-#: forms.py:203
+#: forms.py:205
 msgid "Start time"
 msgstr "Start time"
 
-#: forms.py:209
+#: forms.py:211
 msgid "End time"
 msgstr "End time"
 
-#: forms.py:218
-#: templates/temporale/event_detail.html:19
+#: forms.py:220 templates/temporale/event_detail.html.py:19
 msgid "Occurrences"
 msgstr "Occurrences"
 
-#: forms.py:225
+#: forms.py:227
 msgid "Total Occurrences"
 msgstr "Total Occurrences"
 
-#: forms.py:233
+#: forms.py:235
 msgid "until"
 msgstr "until"
 
-#: forms.py:242
-#: templates/temporale/recurring_form_part.html:57
+#: forms.py:244 templates/temporale/recurring_form_part.html.py:57
 msgid "Frequency"
 msgstr "Frequency"
 
-#: forms.py:249
+#: forms.py:251
 msgid "Interval"
 msgstr "Interval"
 
-#: forms.py:259
+#: forms.py:261
 msgid "Weekly options"
 msgstr "Weekly options"
 
-#: forms.py:266
+#: forms.py:268
 msgid "On the"
 msgstr "On the"
 
-#: forms.py:266
+#: forms.py:268
 msgid "Each:"
 msgstr "Each:"
 
-#: forms.py:269
+#: forms.py:271
 msgid "Monthly options"
 msgstr "Monthly options"
 
-#: forms.py:291
+#: forms.py:293
 msgid "Yearly options"
 msgstr "Yearly options"
 
-#: forms.py:391
+#: forms.py:393
 #, python-format
 msgid "Unknown interval rule %s"
 msgstr "Unknown interval rule %s"
 
-#: forms.py:419
-#: models.py:156
+#: forms.py:421 models.py:156
 msgid "start time"
 msgstr "start time"
 
-#: forms.py:421
-#: models.py:157
+#: forms.py:423 models.py:157
 msgid "end time"
 msgstr "end time"
 
@@ -323,8 +301,7 @@ msgstr "label"
 msgid "Visible name of the event type"
 msgstr "Visible name of the event type"
 
-#: models.py:26
-#: models.py:44
+#: models.py:26 models.py:44
 msgid "content type"
 msgstr "content type"
 
@@ -332,8 +309,7 @@ msgstr "content type"
 msgid "This event type is valid for related objects of this type"
 msgstr "This event type is valid for related objects of this type"
 
-#: models.py:29
-#: models.py:42
+#: models.py:29 models.py:42
 msgid "event type"
 msgstr "event type"
 
@@ -373,8 +349,7 @@ msgstr "object id"
 msgid "ID of the related object"
 msgstr "ID of the related object"
 
-#: models.py:49
-#: models.py:158
+#: models.py:49 models.py:158
 msgid "event"
 msgstr "event"
 
@@ -410,12 +385,7 @@ msgstr "German"
 msgid "English"
 msgstr "English"
 
-#: utils.py:221
-msgid "whole day"
-msgstr "whole day"
-
-#: templates/temporale/add_event.html:2
-#: templates/temporale/add_event.html:4
+#: templates/temporale/add_event.html:2 templates/temporale/add_event.html:4
 msgid "Add Event"
 msgstr "Add Event"
 
@@ -438,12 +408,11 @@ msgstr "Save"
 msgid "fiëé temporâle"
 msgstr "fiëé temporâle"
 
-#: templates/temporale/base.html:24
+#: templates/temporale/base.html:23
 msgid "Sorry, you’re not cleared for the <em>temporale</em> module!"
 msgstr "Sorry, you’re not cleared for the <em>temporale</em> module!"
 
-#: templates/temporale/daily_view.html:2
-#: templates/temporale/daily_view.html:4
+#: templates/temporale/daily_view.html:2 templates/temporale/daily_view.html:4
 msgid "Daily View"
 msgstr "Daily View"
 
@@ -491,8 +460,7 @@ msgstr "Add Occurrences"
 msgid "Add"
 msgstr "Add"
 
-#: templates/temporale/event_list.html:2
-#: templates/temporale/event_list.html:4
+#: templates/temporale/event_list.html:2 templates/temporale/event_list.html:4
 msgid "All Events"
 msgstr "All Events"
 
@@ -625,6 +593,10 @@ msgstr "End"
 #, python-format
 msgid "<p>No events occurring in %(year)s</p>"
 msgstr "<p>No events occurring in %(year)s</p>"
+
+#: utils.py:226
+msgid "whole day"
+msgstr "whole day"
 
 #~ msgid "Calendar"
 #~ msgstr "Calendar"
