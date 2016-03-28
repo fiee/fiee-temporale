@@ -12,6 +12,12 @@ from django.utils.translation import ugettext as _
 from temporale.conf import settings as temporale_settings
 from temporale.models import Occurrence
 
+from django.utils import timezone
+
+from django.conf import settings
+import logging
+logger = logging.getLogger(settings.PROJECT_NAME)
+
 
 def html_mark_safe(func):
     """
@@ -89,7 +95,7 @@ class DefaultOccurrenceProxy(BaseOccurrenceProxy):
 
     @html_mark_safe
     def __unicode__(self):
-        #print self.title
+        logger.debug(self.title)
         return self._str()
 
 
@@ -129,7 +135,7 @@ def create_timeslot_table(dt=None, items=None,
     dtend = dtstart + end_time_delta
     wholedaytime = datetime.combine(dt.date(), time(0,0,1))
 
-    print "\nnew table from",dt.date(),start_time,'to',dtend.time()
+    logger.info("new table from %s %s to %s", dt.date(), start_time, dtend.time())
 
     if isinstance(items, QuerySet):
         items = items._clone()
@@ -145,11 +151,10 @@ def create_timeslot_table(dt=None, items=None,
 
     # fill the timeslot buckets with occurrence proxies
     for item in sorted(items):
-        
         if item.end_time < dt0 or item.start_time > dtend \
         or (item.end_time <= dtstart and not item.wholeday()): # wholeday is normally < start time
             # events outside of our schedule constraints
-            #print "excluding", item
+            logger.debug("excluding %s", item)
             continue
         
         if item.wholeday():
@@ -164,7 +169,7 @@ def create_timeslot_table(dt=None, items=None,
 
         timeslot = timeslots.get(rowkey, None)
         if timeslot is None:
-            print "timeslot not found for",item
+            logger.warn("timeslot not found for %s", item)
             # TODO fix atypical interval boundry spans
             # This is rather draconian, we should probably try to find a better
             # way to indicate that this item actually occurred between 2 intervals
