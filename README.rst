@@ -3,8 +3,7 @@ fiëé témporâle
 ==============
 
 Generic event data for your Django models,
-based on django-swingtime_ by David A. Krauth (dakrauth)
-(at the moment it’s mostly his code, that will probably change).
+based on django-swingtime_ by David A. Krauth (dakrauth).
 
 Use this to add arbitrary date-based relations to your models,
 e.g. a person has a birthday, some life events and an obit;
@@ -30,24 +29,54 @@ I didn’t check yet, but I guess it hits the database rather hard.
 Howto
 -----
 
-You don’t need to change your models at all, but it’s easier if you add::
+You don’t need to change your models at all, but you can add::
 
-    events = django.contrib.contenttypes.generic.GenericRelation(temporale.models.Event)
+    events = django.contrib.contenttypes.field.GenericRelation(temporale.models.Event)
+
+
+Otherwise you can define a `temporale_info` for your models like this::
+
+
+    def temporale_info(self):
+        """
+        list of dicts about this model’s events to handle by temporale
+        """
+        res = [{
+            'title': _(u'Publication date: %s') % self.name(),
+            'event_type': ('pubday', _(u'Publication date')),
+            'description': '',
+            'start_time': self.pubday,
+            'end_time': self.pubday,
+            'user': self.lastchangedby,
+            }]
+        if self.revocationday:
+            res.append({
+            'title': _(u'Revocation: %s') % self.name(),
+            'event_type': ('revocationday', _(u'Revocation date')),
+            'description': '',
+            'start_time': self.revocationday,
+            'end_time': self.revocationday,
+            'user': self.lastchangedby,
+            })
+        return res
+
+
+fiëé temporale listens to save events and handles all events that are defined this way.
 
 
 Dependencies
 ------------
 
-* Django 1.6 with included contributions
+* Django 1.8 with included contributions
 * django-registration_ (or compatible)
-* fiee-dorsale_
+* fiee-dorsale_ 0.0.9+
 * python-dateutil_ 1.5+ (not 2.0 or above, that's only for Python 3!)
 
 
 Known Issues
 ------------
 
-* fork of my personal version of swingtime, not yet working at all
+* demo and tests are not yet updated to current code
 * timeline view not started (planned with SIMILE widget)
 
 
