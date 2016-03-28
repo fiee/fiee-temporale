@@ -1,0 +1,9 @@
+{% extends "root.html" %}{% load i18n %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block main_content %}
+<h2>{% trans "Activation failed" %}</h2>
+<p>{% trans "Sorry, you provided a wrong activation key." %} ({activation_key})</p>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "root.html" %}{% load i18n %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block main_content %}
+<h2>{% trans "Thank you for registering" %}</h2>
+<p>{% trans "We have send an E-mail with an activation link to the address you provided." %}</p>
+
+{% endblock %}

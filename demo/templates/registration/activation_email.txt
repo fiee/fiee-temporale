@@ -1,0 +1,5 @@
+{% load i18n %}
+{% blocktrans with site as site and expiration_days as expiration_days %}
+Please activate your registration with {{ site.name }} within {{ expiration_days }} days by clicking the following link:
+{% endblocktrans %}
+http://{{ site.domain }}/accounts/activate/{{activation_key}}
