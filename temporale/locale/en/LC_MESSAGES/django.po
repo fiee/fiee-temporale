@@ -7,18 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fiëé temporâle\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-27 00:03+0600\n"
-"PO-Revision-Date: 2011-11-01 16:08+0100\n"
+"POT-Creation-Date: 2016-03-28 16:47+0600\n"
+"PO-Revision-Date: 2016-03-28 16:46+0600\n"
 "Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
 "Language-Team: David A. Krauth <dakrauth@gmail.com>\n"
-"Language: \n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Poedit-Language: English\n"
-"X-Poedit-Country: UNITED STATES\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.7\n"
 
 #: forms.py:20
 msgid "Sun"
@@ -408,7 +407,7 @@ msgstr "Save"
 msgid "fiëé temporâle"
 msgstr "fiëé temporâle"
 
-#: templates/temporale/base.html:23
+#: templates/temporale/base.html:22
 msgid "Sorry, you’re not cleared for the <em>temporale</em> module!"
 msgstr "Sorry, you’re not cleared for the <em>temporale</em> module!"
 
