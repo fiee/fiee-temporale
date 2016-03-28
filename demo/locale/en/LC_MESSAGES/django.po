@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fiëé témporâle demo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-01 10:04-0500\n"
+"POT-Creation-Date: 2016-03-27 00:03+0600\n"
 "PO-Revision-Date: 2011-11-01 16:05+0100\n"
 "Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
 "Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
@@ -20,19 +20,19 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: templates/404.html:4
-#: templates/404.html.py:7
+#: templates/404.html:4 templates/404.html.py:7
 msgid "Error 404: Page Not Found"
 msgstr "Error 404: Page Not Found"
 
-#: templates/500.html:4
-#: templates/500.html.py:7
+#: templates/500.html:4 templates/500.html.py:7
 msgid "Error 500: Server Error"
 msgstr "Error 500: Server Error"
 
 #: templates/500.html:8
-msgid "Sorry, this page is temporalily unavailable due to a server misconfiguration."
-msgstr "Sorry, this page is temporalily unavailable due to a server misconfiguration."
+msgid ""
+"Sorry, this page is temporalily unavailable due to a server misconfiguration."
+msgstr ""
+"Sorry, this page is temporalily unavailable due to a server misconfiguration."
 
 #: templates/menus/hd.html:6
 msgid "About..."
@@ -82,10 +82,12 @@ msgstr "Sorry, you provided a wrong activation key."
 #, python-format
 msgid ""
 "\n"
-"Please activate your registration with %(site.name)s within %(expiration_days)s days by clicking the following link:\n"
+"Please activate your registration with %(site.name)s within "
+"%(expiration_days)s days by clicking the following link:\n"
 msgstr ""
 "\n"
-"Please activate your registration with %(site.name)s within %(expiration_days)s days by clicking the following link:\n"
+"Please activate your registration with %(site.name)s within "
+"%(expiration_days)s days by clicking the following link:\n"
 
 #: templates/registration/activation_email_subject.txt:2
 msgid "Activate your account"
@@ -104,8 +106,10 @@ msgid "Thank you for registering"
 msgstr "Thank you for registering"
 
 #: templates/registration/registration_complete.html:7
-msgid "We have send an E-mail with an activation link to the address you provided."
-msgstr "We have send an E-mail with an activation link to the address you provided."
+msgid ""
+"We have send an E-mail with an activation link to the address you provided."
+msgstr ""
+"We have send an E-mail with an activation link to the address you provided."
 
 #: templates/snippets/languageselect.html:11
 msgid "Change language"
@@ -193,7 +197,6 @@ msgstr "New Item"
 #~ msgstr "View on site"
 
 #~ msgid "Please correct the error below."
-
 #~ msgid_plural "Please correct the errors below."
 #~ msgstr[0] "Please correct the error below."
 #~ msgstr[1] "Please correct the errors below."

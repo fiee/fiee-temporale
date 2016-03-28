@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fiëé témporâle demo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-01 10:04-0500\n"
+"POT-Creation-Date: 2016-03-27 00:03+0600\n"
 "PO-Revision-Date: 2011-11-01 16:07+0100\n"
 "Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
 "Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
@@ -20,19 +20,20 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: templates/404.html:4
-#: templates/404.html.py:7
+#: templates/404.html:4 templates/404.html.py:7
 msgid "Error 404: Page Not Found"
 msgstr "Fehler 404: Seite nicht gefunden"
 
-#: templates/500.html:4
-#: templates/500.html.py:7
+#: templates/500.html:4 templates/500.html.py:7
 msgid "Error 500: Server Error"
 msgstr "Fehler 500: Server-Fehler"
 
 #: templates/500.html:8
-msgid "Sorry, this page is temporalily unavailable due to a server misconfiguration."
-msgstr "Entschuldigung, diese Seite ist wegen einer Fehlkonfiguration des Servers vorübergehend nicht verfügbar."
+msgid ""
+"Sorry, this page is temporalily unavailable due to a server misconfiguration."
+msgstr ""
+"Entschuldigung, diese Seite ist wegen einer Fehlkonfiguration des Servers "
+"vorübergehend nicht verfügbar."
 
 #: templates/menus/hd.html:6
 msgid "About..."
@@ -82,10 +83,12 @@ msgstr "Sie haben leider einen falschen Aktivierungscode übergeben."
 #, python-format
 msgid ""
 "\n"
-"Please activate your registration with %(site.name)s within %(expiration_days)s days by clicking the following link:\n"
+"Please activate your registration with %(site.name)s within "
+"%(expiration_days)s days by clicking the following link:\n"
 msgstr ""
 "\n"
-"Bitte aktivieren Sie Ihre Registrierung auf „%(site.name)s“ innerhalb von %(expiration_days)s Tagen, indem Sie auf den folgenden Link klicken:\n"
+"Bitte aktivieren Sie Ihre Registrierung auf „%(site.name)s“ innerhalb von "
+"%(expiration_days)s Tagen, indem Sie auf den folgenden Link klicken:\n"
 
 #: templates/registration/activation_email_subject.txt:2
 msgid "Activate your account"
@@ -97,15 +100,19 @@ msgstr "Registrierung ist geschlossen"
 
 #: templates/registration/registration_closed.html:7
 msgid "We’re sorry, but at the moment we can’t accept new users."
-msgstr "Entschuldigung, zur Zeit können wir keine neuen Benutzerkonten registrieren."
+msgstr ""
+"Entschuldigung, zur Zeit können wir keine neuen Benutzerkonten registrieren."
 
 #: templates/registration/registration_complete.html:6
 msgid "Thank you for registering"
 msgstr "Vielen Dank für Ihre Registrierung"
 
 #: templates/registration/registration_complete.html:7
-msgid "We have send an E-mail with an activation link to the address you provided."
-msgstr "Wir haben Ihnen eine E-Mail mit einem Aktivierungs-Link an die angegebene Adresse geschickt."
+msgid ""
+"We have send an E-mail with an activation link to the address you provided."
+msgstr ""
+"Wir haben Ihnen eine E-Mail mit einem Aktivierungs-Link an die angegebene "
+"Adresse geschickt."
 
 #: templates/snippets/languageselect.html:11
 msgid "Change language"
@@ -196,7 +203,6 @@ msgstr "Neuer Eintrag"
 #~ msgstr "Auf der Webseite anzeigen"
 
 #~ msgid "Please correct the error below."
-
 #~ msgid_plural "Please correct the errors below."
 #~ msgstr[0] "Bitte korrigieren Sie den unten stehenden Fehler."
 #~ msgstr[1] "Bitte korrigieren Sie die unten stehenden Fehler."
