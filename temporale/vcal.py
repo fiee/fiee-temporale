@@ -37,7 +37,6 @@ def events_as_vcal(request, events=None, **kwargs):
             v.add('dtend').value = occ.end_time
             v.add('summary').value = e.title
             v.add('description').value = e.description
-    response = HttpResponse(cal.serialize(), mimetype="text/calendar")
+    response = HttpResponse(cal.serialize(), content_type="text/calendar")
     response['Content-Disposition'] = 'attachment; filename=%s.ics' % filename
     return response
-            
