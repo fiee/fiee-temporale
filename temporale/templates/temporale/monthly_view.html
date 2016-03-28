@@ -3,7 +3,7 @@
 {% block temporale_content %}
     <h2>{% trans "Monthly View" %}</h2>
     <h3 class="center">
-        <a href="{% url 'temporale-monthly-view last_month.year' last_month.month %}" class="left" title="{% trans "Previous Month" %}">
+        <a href="{% url 'temporale-monthly-view' last_month.year last_month.month %}" class="left" title="{% trans "Previous Month" %}">
           <span class="ui-icon ui-icon-circle-triangle-w">&lArr;</span>
         </a>
         <span>{{ this_month|date:"F" }} 
