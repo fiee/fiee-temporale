@@ -5,9 +5,21 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.db import models
 from django.db.models.signals import post_save
-from dorsale.managers import DorsaleSiteManager
-from adhesive.models import DorsaleAnnotatedBaseModel
+# from dorsale.managers import DorsaleSiteManager
+# from adhesive.models import DorsaleAnnotatedBaseModel
+from dorsale.tools import class_from_name
 from dateutil import rrule
+
+import logging
+logger = logging.getLogger(__name__)
+
+from .settings import BASE_CLASS, MANAGER
+
+BASE_CLASS = class_from_name(BASE_CLASS)
+MANAGER = class_from_name(MANAGER)
+
+logger.info(BASE_CLASS)
+logger.info(MANAGER)
 
 __all__ = (
     'EventType',
@@ -33,7 +45,7 @@ class EventType(models.Model):
         return self.label
 
 
-class Event(DorsaleAnnotatedBaseModel):
+class Event(BASE_CLASS):
     """
     Container model for general metadata and associated ``Occurrence`` entries.
     """
@@ -114,7 +126,7 @@ class Event(DorsaleAnnotatedBaseModel):
         return Occurrence.objects.daily_occurrences(dt=dt, event=self)
 
 
-class OccurrenceManager(DorsaleSiteManager):
+class OccurrenceManager(MANAGER):
     use_for_related_fields = True
 
     def daily_occurrences(self, dt=None, event=None):
@@ -148,7 +160,7 @@ class OccurrenceManager(DorsaleSiteManager):
         return qs.filter(event=event) if event else qs
 
 
-class Occurrence(DorsaleAnnotatedBaseModel):
+class Occurrence(BASE_CLASS):
     """
     Represents the start end time for a specific occurrence of a master ``Event``
     object.
@@ -300,6 +312,8 @@ def update_event(sender, **kwargs):
     if not hasattr(sender, 'temporale_info'):
         return False
     instance = kwargs['instance']
+    if hasattr(instance, 'temporale_ignore'):
+        return False
     infos = instance.temporale_info()
     evts = None
     if not kwargs['created']: # model was saved before

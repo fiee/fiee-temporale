@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import
 import calendar
 import itertools
-from datetime import datetime, timedelta #, time
+from datetime import datetime, timedelta
 from dateutil import parser
 
 from django import http
@@ -12,19 +13,24 @@ from django.db import models
 from django.template.context import RequestContext
 from django.shortcuts import get_object_or_404, render_to_response
 
-from adhesive.models import Note
-
+from dorsale.tools import class_from_name
 from temporale.models import Event, Occurrence
 from temporale import utils, forms
-from temporale.conf import settings as temporale_settings
+# from temporale.conf import settings as temporale_settings
+from .settings import (USE_ADHESIVE, FIRST_DAY_OF_WEEK, CALENDAR_FIRST_WEEKDAY)
 
-if settings.FIRST_DAY_OF_WEEK is not None:
-    if settings.FIRST_DAY_OF_WEEK==0:
+if USE_ADHESIVE:
+    note_model = class_from_name('adhesive.models.Note')
+else:
+    note_model = None
+
+if FIRST_DAY_OF_WEEK is not None:
+    if FIRST_DAY_OF_WEEK==0:
         calendar.setfirstweekday(6)
     else:
-        calendar.setfirstweekday(settings.FIRST_DAY_OF_WEEK-1)
-elif temporale_settings.CALENDAR_FIRST_WEEKDAY is not None:
-    calendar.setfirstweekday(temporale_settings.CALENDAR_FIRST_WEEKDAY)
+        calendar.setfirstweekday(FIRST_DAY_OF_WEEK-1)
+elif CALENDAR_FIRST_WEEKDAY is not None:
+    calendar.setfirstweekday(CALENDAR_FIRST_WEEKDAY)
 
 
 @login_required
@@ -78,15 +84,17 @@ def event_view(request, pk, template='temporale/event_detail.html',
             event_form = event_form_class(
                 request.POST, instance=event, user=request.user)
             if event_form.is_valid():
-                if not 'note' in event_form.cleaned_data \
-                        and 'note' in request.POST:
-                    n, isnew = Note.objects.get_or_create(
-                        content_type=event_type, object_id=pk)
-                    if isnew:
-                        n.createdby = request.user
-                    n.note = request.POST['note']
-                    n.lastchangedby = request.user
-                    n.save()
+                if note_model:  # if settings.USE_ADHESIVE
+                    # there might be notes in our form
+                    if not 'note' in event_form.cleaned_data \
+                            and 'note' in request.POST:
+                        n, isnew = note_model.objects.get_or_create(
+                            content_type=event_type, object_id=pk)
+                        if isnew:
+                            n.createdby = request.user
+                        n.note = request.POST['note']
+                        n.lastchangedby = request.user
+                        n.save()
                 event_form.save(event)
                 return http.HttpResponseRedirect(request.path)
         elif 'add_occurrence' in request.POST:
@@ -136,14 +144,16 @@ def occurrence_view(request, event_pk, pk,
     if request.method == 'POST':
         form = form_class(request.POST, instance=occurrence, user=request.user)
         if form.is_valid():
-            if not 'note' in form.cleaned_data and 'note' in request.POST:
-                n, isnew = Note.objects.get_or_create(
-                    content_type=occurrence_type, object_id=pk)
-                if isnew:
-                    n.createdby = request.user
-                n.note = request.POST['note']
-                n.lastchangedby = request.user
-                n.save()
+            if note_model:  # if settings.USE_ADHESIVE
+                # there might be notes in our form
+                if not 'note' in form.cleaned_data and 'note' in request.POST:
+                    n, isnew = note_model.objects.get_or_create(
+                        content_type=occurrence_type, object_id=pk)
+                    if isnew:
+                        n.createdby = request.user
+                    n.note = request.POST['note']
+                    n.lastchangedby = request.user
+                    n.save()
             form.save()
             return http.HttpResponseRedirect(request.path)
     else:
@@ -353,7 +363,7 @@ def month_view(request, year, month, template='temporale/monthly_view.html', que
     data = dict(
         today=datetime.now(),
         calendar=[[(d, by_day.get(d, [])) for d in row] for row in cal],
-        week=(weekdays[i] for i in range(settings.FIRST_DAY_OF_WEEK, settings.FIRST_DAY_OF_WEEK+7)),
+        week=(weekdays[i] for i in range(FIRST_DAY_OF_WEEK, FIRST_DAY_OF_WEEK+7)),
         this_month=dtstart,
         next_month=dtstart + timedelta(days=+last_day),
         last_month=dtstart + timedelta(days=-1),

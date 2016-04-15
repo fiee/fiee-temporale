@@ -43,7 +43,7 @@ Otherwise you can define a `temporale_info` for your models like this::
         """
         res = [{
             'title': _(u'Publication date: %s') % self.name(),
-            'event_type': ('pubday', _(u'Publication date')),
+            'event_type': ('pubday', _('Publication date')),
             'description': '',
             'start_time': self.pubday,
             'end_time': self.pubday,
@@ -52,7 +52,7 @@ Otherwise you can define a `temporale_info` for your models like this::
         if self.revocationday:
             res.append({
             'title': _(u'Revocation: %s') % self.name(),
-            'event_type': ('revocationday', _(u'Revocation date')),
+            'event_type': ('revocationday', _('Revocation date')),
             'description': '',
             'start_time': self.revocationday,
             'end_time': self.revocationday,
@@ -61,7 +61,7 @@ Otherwise you can define a `temporale_info` for your models like this::
         return res
 
 
-fiëé temporale listens to save events and handles all events that are defined this way.
+fiëé temporâle listens to save events and handles all events that are defined this way.
 
 
 Dependencies
@@ -69,8 +69,8 @@ Dependencies
 
 * Django 1.8 with included contributions
 * django-registration_ (or compatible)
-* fiee-dorsale_ 0.0.9+
-* python-dateutil_ 1.5+ (not 2.0 or above, that's only for Python 3!)
+* fiee-dorsale_ 0.1.0+
+* python-dateutil_ 1.5+ (not 2.0, that's only for Python 3!)
 
 
 Known Issues
@@ -80,10 +80,95 @@ Known Issues
 * timeline view not started (planned with SIMILE widget)
 
 
+Settings
+--------
+
+
+PROJECT_NAME :
+    Set this to your main project name.
+    
+    Default: 'temporale'
+
+You can influence the inheritance of temporale’s models and thus the
+dependeny from other fiëé packages. Try to decide that first, because
+different base models mean different model fields and thus different
+database table columns.
+
+TEMPORALE_BASE_CLASS : class name
+    Default: `adhesive.models.DorsaleAnnotatedBaseModel` from fiee-adhesive_
+    
+    Other possibilities include `django.db.models.Model` and the models from
+    fiee-dorsale_
+
+TEMPORALE_MANAGER : class name
+    Default: `dorsale.managers.DorsaleGroupSiteManager` from fiee-dorsale_
+    
+    Since this is called with arguments for group and site field names,
+    you need a Manager class that accepts them. You can use
+    `dorsale.managers.DorsaleFakeManager` or make your own.
+
+TEMPORALE_USE_ADHESIVE : boolean
+    Default: False
+    
+    If `True`, events try to save associated `adhesive.Notes`.
+
+
+TEMPORALE_TIMESLOT_TIME_FORMAT : strftime string
+    Default: '%H:%M'
+
+    Used for formatting start and end time selectors in forms.
+
+TEMPORALE_TIMESLOT_INTERVAL : `datetime.timedelta`
+    Default: 15 minutes
+
+    Used for creating start and end time form selectors as well as time slot
+    grids.
+    Value should be `datetime.timedelta` value representing the incremental 
+    difference between temporal options
+
+TEMPORALE_TIMESLOT_START_TIME : `datetime.time`
+    Default: 09:00
+    
+    A `datetime.time` value indicting the starting time for time slot grids and
+    form selectors
+
+TEMPORALE_TIMESLOT_END_TIME_DURATION : `datetime.timedelta`
+    Default: 8 hours
+    
+    A `datetime.timedelta` value indicating the offset value from 
+    TEMPORALE_TIMESLOT_START_TIME for creating time slot grids and form
+    selectors.
+    Using a time delta makes it possible to span dates.
+    For instance, one could have a starting time of 15:00 and wish to indicate 
+    an ending value of 01:30, in which case a value of 
+    `datetime.timedelta(hours=10.5)` could be specified to indicate that the
+    01:30 represents the following date’s time and not the current date’s.
+
+TEMPORALE_TIMESLOT_MIN_COLUMNS : int
+    Default: 4
+    
+    Indicates a minimum value for the number grid columns to be shown in the
+    time slot table.
+
+TEMPORALE_DEFAULT_OCCURRENCE_DURATION : `datetime.timedelta`
+    Default: 1 hour
+
+    Indicate the default length in time for a new occurrence, specifed by using
+    a `datetime.timedelta` object.
+
+TEMPORALE_CALENDAR_FIRST_WEEKDAY : int
+    Default: 1 (Monday)
+    
+    If not `None`, passed to the `calendar` module’s `setfirstweekday` function.
+
+FIRST_DAY_OF_WEEK : int
+    Same as TEMPORALE_CALENDAR_FIRST_WEEKDAY, inherits from the former.
+
+
 License
 -------
 
-BSD, like Django itself, see LICENSE_
+BSD, see LICENSE_
 (may not entirely be allowed, must still check licenses of used code)
 
 
