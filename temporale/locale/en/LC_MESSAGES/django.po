@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fiëé temporâle\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-31 13:34+0600\n"
-"PO-Revision-Date: 2016-03-28 16:46+0600\n"
+"POT-Creation-Date: 2016-04-15 17:28+0600\n"
+"PO-Revision-Date: 2016-04-15 17:28+0600\n"
 "Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
 "Language-Team: David A. Krauth <dakrauth@gmail.com>\n"
 "Language: en_US\n"
@@ -18,6 +18,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 1.8.7\n"
+
+#: __init__.py:5
+msgid "Temporale"
+msgstr "Temporale"
+
+#: __init__.py:6
+msgid "Temporales"
+msgstr "Temporales"
 
 #: forms.py:20
 msgid "Sun"
@@ -218,8 +226,8 @@ msgstr "Date"
 #: forms.py:202 forms.py:208 forms.py:214 forms.py:224 forms.py:232
 #: forms.py:241 forms.py:248 forms.py:256 forms.py:264 forms.py:274
 #: forms.py:279 forms.py:283 forms.py:288 forms.py:296 forms.py:299
-#: forms.py:301 forms.py:303 forms.py:422 forms.py:424 models.py:156
-#: models.py:157 models.py:158
+#: forms.py:301 forms.py:303 forms.py:422 forms.py:424 models.py:168
+#: models.py:169 models.py:170
 msgid "-"
 msgstr "-"
 
@@ -276,113 +284,105 @@ msgstr "Yearly options"
 msgid "Unknown interval rule %s"
 msgstr "Unknown interval rule %s"
 
-#: forms.py:421 models.py:156
+#: forms.py:421 models.py:168
 msgid "start time"
 msgstr "start time"
 
-#: forms.py:423 models.py:157
+#: forms.py:423 models.py:169
 msgid "end time"
 msgstr "end time"
 
-#: models.py:24
+#: models.py:36
 msgid "code"
 msgstr "code"
 
-#: models.py:24
+#: models.py:36
 msgid "Abbreviation of the label (internal use)"
 msgstr "Abbreviation of the label (internal use)"
 
-#: models.py:25
+#: models.py:37
 msgid "label"
 msgstr "label"
 
-#: models.py:25
+#: models.py:37
 msgid "Visible name of the event type"
 msgstr "Visible name of the event type"
 
-#: models.py:26 models.py:44
+#: models.py:38 models.py:56
 msgid "content type"
 msgstr "content type"
 
-#: models.py:26
+#: models.py:38
 msgid "This event type is valid for related objects of this type"
 msgstr "This event type is valid for related objects of this type"
 
-#: models.py:29 models.py:42
+#: models.py:41 models.py:54
 msgid "event type"
 msgstr "event type"
 
-#: models.py:30
+#: models.py:42
 msgid "event types"
 msgstr "event types"
 
-#: models.py:40
+#: models.py:52
 msgid "title"
 msgstr "title"
 
-#: models.py:40
+#: models.py:52
 msgid "Name of the event"
 msgstr "Name of the event"
 
-#: models.py:41
+#: models.py:53
 msgid "description"
 msgstr "description"
 
-#: models.py:41
+#: models.py:53
 msgid "Short description of the event"
 msgstr "Short description of the event"
 
-#: models.py:42
+#: models.py:54
 msgid "Type of the event"
 msgstr "Type of the event"
 
-#: models.py:44
+#: models.py:56
 msgid "Type of the related object"
 msgstr "Type of the related object"
 
-#: models.py:45
+#: models.py:57
 msgid "object id"
 msgstr "object id"
 
-#: models.py:45
+#: models.py:57
 msgid "ID of the related object"
 msgstr "ID of the related object"
 
-#: models.py:49 models.py:158
+#: models.py:61 models.py:170
 msgid "event"
 msgstr "event"
 
-#: models.py:50
+#: models.py:62
 msgid "events"
 msgstr "events"
 
-#: models.py:53
+#: models.py:65
 msgid "Can view event"
 msgstr "Can view event"
 
-#: models.py:163
+#: models.py:175
 msgid "occurrence"
 msgstr "occurrence"
 
-#: models.py:164
+#: models.py:176
 msgid "occurrences"
 msgstr "occurrences"
 
-#: models.py:167
+#: models.py:179
 msgid "Can view occurrence"
 msgstr "Can view occurrence"
 
-#: models.py:313
+#: models.py:327
 msgid "Generic event"
 msgstr "Generic event"
-
-#: settings.py:10
-msgid "German"
-msgstr "German"
-
-#: settings.py:11
-msgid "English"
-msgstr "English"
 
 #: templates/temporale/add_event.html:2 templates/temporale/add_event.html:4
 msgid "Add Event"
@@ -596,6 +596,12 @@ msgstr "<p>No events occurring in %(year)s</p>"
 #: utils.py:226
 msgid "whole day"
 msgstr "whole day"
+
+#~ msgid "German"
+#~ msgstr "German"
+
+#~ msgid "English"
+#~ msgstr "English"
 
 #~ msgid "Calendar"
 #~ msgstr "Calendar"
