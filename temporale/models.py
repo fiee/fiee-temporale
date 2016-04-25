@@ -72,6 +72,15 @@ class Event(BASE_CLASS):
     def get_absolute_url(self):
         return ('temporale-event', [str(self.id)])
 
+    def _make_params(self, **kwargs):
+        """
+        Add dorsale attributes, if they exist
+        """
+        for p in ('createdby', 'site'):
+            if hasattr(self, p):
+                kwargs[p] = getattr(self, p)
+        return kwargs
+
     def add_occurrences(self, start_time, end_time, **rrule_params):
         """
         Add one or more occurences to the event using a comparable API to
@@ -90,19 +99,23 @@ class Event(BASE_CLASS):
         """
         rrule_params.setdefault('freq', rrule.DAILY)
 
+        params = self._make_params(start_time=start_time, end_time=end_time)
         if 'count' not in rrule_params and 'until' not in rrule_params:
-            self.occurrence_set.create(start_time=start_time, end_time=end_time, createdby=self.createdby, site=self.site)
+            return self.occurrence_set.create(**params)
         else:
             delta = end_time - start_time
             for ev in rrule.rrule(dtstart=start_time, **rrule_params):
-                self.occurrence_set.create(start_time=ev, end_time=ev + delta, createdby=self.createdby, site=self.site)
+                params['start_time'] = ev
+                params['end_time'] = ev + delta
+                return self.occurrence_set.create(**params)
 
     def add_single_occurrence(self, start_time, end_time=None):
         """
         Add a single occurrence to the event, using ``start_time`` also as ``end_time`` if empty.
         """
         end_time = end_time or start_time
-        self.occurrence_set.create(start_time=start_time, end_time=start_time, createdby=self.createdby, site=self.site)
+        params = self._make_params(start_time=start_time, end_time=start_time)
+        return self.occurrence_set.create(**params)
 
     def upcoming_occurrences(self):
         """
@@ -272,12 +285,14 @@ def create_event(title, event_type, description='', start_time=None,
         content_object=content_object,
     )
     if content_object:
-        if hasattr(content_object, 'createdby'):
+        # these attributes exist if the Event model inherits from a Dorsale base model
+        if hasattr(event, 'createdby') and hasattr(content_object, 'createdby'):
             event.createdby = content_object.createdby
-        if hasattr(content_object, 'site'):
+        if hasattr(event, 'site') and hasattr(content_object, 'site'):
             event.site = content_object.site
 
-    if note is not None:
+    if hasattr(event, 'notes') and note is not None:
+        # event.notes exists, if the Event model inherits from a fiee adhesive base model
         event.notes.create(note=note)
 
     start_time = start_time or datetime.now().replace(
@@ -316,11 +331,11 @@ def update_event(sender, **kwargs):
         return False
     infos = instance.temporale_info()
     evts = None
-    if not kwargs['created']: # model was saved before
+    if not kwargs['created']:  # model was saved before
         model_type = ContentType.objects.get_for_model(sender)
         evts = Event.objects.filter(content_type__pk=model_type.id, object_id=instance.id)
-        evts.delete() # simply create anew - TODO! - that's mostly unnecessary
-    #if not evts: # no events found (new model or not previously connected to temporale)
+        evts.delete()  # simply create anew - TODO! - that's mostly unnecessary
+    # if not evts:  # no events found (new model or not previously connected to temporale)
     for info in infos:
         i = {
              'title': '',
