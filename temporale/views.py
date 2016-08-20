@@ -12,6 +12,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.template.context import RequestContext
 from django.shortcuts import get_object_or_404, render_to_response
+from django.utils import timezone
 
 from dorsale.tools import class_from_name
 from temporale.models import Event, Occurrence
@@ -109,7 +110,7 @@ def event_view(request, pk, template='temporale/event_detail.html',
     event_form = event_form or event_form_class(instance=event, user=request.user)
     if not recurrence_form:
         recurrence_form = recurrence_form_class(
-            initial=dict(dtstart=datetime.now(),
+            initial=dict(dtstart=timezone.now(),
             user=request.user)
         )
 
@@ -204,7 +205,7 @@ def add_event(request, template='temporale/add_event.html',
                 dtstart = parser.parse(request.GET['dtstart'])
             except:
                 # TODO: A badly formatted date is passed to add_event
-                dtstart = datetime.now()
+                dtstart = timezone.now()
 
         event_form = event_form_class(user=request.user)
         recurrence_form = recurrence_form_class(
@@ -260,7 +261,7 @@ def today_view(request, template='temporale/daily_view.html', **params):
     """
     See documentation for function ``_datetime_view``.
     """
-    return _datetime_view(request, template, datetime.now(), **params)
+    return _datetime_view(request, template, timezone.now(), **params)
 
 
 def year_view(request, year, template='temporale/yearly_view.html', queryset=None):
@@ -361,7 +362,7 @@ def month_view(request, year, month, template='temporale/monthly_view.html', que
     weekdays[0] = weekdays[7]
 
     data = dict(
-        today=datetime.now(),
+        today=timezone.now(),
         calendar=[[(d, by_day.get(d, [])) for d in row] for row in cal],
         week=(weekdays[i] for i in range(FIRST_DAY_OF_WEEK, FIRST_DAY_OF_WEEK+7)),
         this_month=dtstart,

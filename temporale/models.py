@@ -1,5 +1,6 @@
 # -*- coding: utf-8 *-*
 from datetime import datetime, time
+from django.utils import timezone
 from django.utils.translation import ugettext as _
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
@@ -122,7 +123,7 @@ class Event(BASE_CLASS):
         Return all occurrences that are set to start on or after the current
         time.
         """
-        return self.occurrence_set.filter(start_time__gte=datetime.now())
+        return self.occurrence_set.filter(start_time__gte=timezone.now())
 
     def next_occurrence(self):
         """
@@ -152,7 +153,7 @@ class OccurrenceManager(MANAGER):
 
         * ``event`` can be an ``Event`` instance for further filtering.
         """
-        dt = dt or datetime.now()
+        dt = dt or timezone.now()
         start = datetime(dt.year, dt.month, dt.day)
         end = start.replace(hour=23, minute=59, second=59)
         qs = self.filter(
@@ -295,7 +296,7 @@ def create_event(title, event_type, description='', start_time=None,
         # event.notes exists, if the Event model inherits from a fiee adhesive base model
         event.notes.create(note=note)
 
-    start_time = start_time or datetime.now().replace(
+    start_time = start_time or timezone.now().replace(
         minute=0,
         second=0,
         microsecond=0
@@ -341,8 +342,8 @@ def update_event(sender, **kwargs):
              'title': '',
              'event_type': ('generic', _(u'Generic event')),
              'description': '',
-             'start_time': datetime.now(),
-             'end_time': datetime.now(),
+             'start_time': timezone.now(),
+             'end_time': timezone.now(),
              'content_object': instance,
         }
         i.update(info)

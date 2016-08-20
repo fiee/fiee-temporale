@@ -129,7 +129,7 @@ def create_timeslot_table(dt=None, items=None,
       This class should also expose ``event_type`` and ``event_type`` attrs, and
       handle the custom output via its __unicode__ method.
     """
-    dt = dt or datetime.now()
+    dt = dt or timezone.now()
     dt0 = datetime.combine(dt.date(), time(0,0))
     dtstart = datetime.combine(dt.date(), start_time)
     dtend = dtstart + end_time_delta
