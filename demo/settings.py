@@ -12,7 +12,7 @@ sys.path = ['..',] + sys.path # find temporale
 try:
     import dorsale
     import adhesive
-except ImportError, e:
+except ImportError as e:
     print "Error: fiee-dorsale or fiee-adhesive is not installed or at least not in your path; these are dependencies of fiee-temporale."
     raise e
 

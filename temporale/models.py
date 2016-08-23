@@ -1,4 +1,6 @@
 # -*- coding: utf-8 *-*
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from datetime import datetime, time
 from django.utils import timezone
 from django.utils.translation import ugettext as _
@@ -34,9 +36,9 @@ class EventType(models.Model):
     """
     Simple ``Event`` classification.
     """
-    code = models.SlugField(_('code'), max_length=15, unique=True, help_text=_(u'Abbreviation of the label (internal use)'))
-    label = models.CharField(_('label'), max_length=50, help_text=_(u'Visible name of the event type'))
-    content_type = models.ForeignKey(ContentType, verbose_name=_('content type'), blank=True, null=True, help_text=_(u'This event type is valid for related objects of this type'))
+    code = models.SlugField(_('code'), max_length=15, unique=True, help_text=_('Abbreviation of the label (internal use)'))
+    label = models.CharField(_('label'), max_length=50, help_text=_('Visible name of the event type'))
+    content_type = models.ForeignKey(ContentType, verbose_name=_('content type'), blank=True, null=True, help_text=_('This event type is valid for related objects of this type'))
 
     class Meta:
         verbose_name = _('event type')
@@ -50,12 +52,12 @@ class Event(BASE_CLASS):
     """
     Container model for general metadata and associated ``Occurrence`` entries.
     """
-    title = models.CharField(_('title'), max_length=63, help_text=_(u'Name of the event'))
-    description = models.CharField(_('description'), max_length=255, help_text=_(u'Short description of the event'))
-    event_type = models.ForeignKey(EventType, verbose_name=_('event type'), null=True, help_text=_(u'Type of the event'))
+    title = models.CharField(_('title'), max_length=63, help_text=_('Name of the event'))
+    description = models.CharField(_('description'), max_length=255, help_text=_('Short description of the event'))
+    event_type = models.ForeignKey(EventType, verbose_name=_('event type'), null=True, help_text=_('Type of the event'))
 
-    content_type = models.ForeignKey(ContentType, verbose_name=_('content type'), blank=True, null=True, help_text=_(u'Type of the related object'))
-    object_id = models.IntegerField(_('object id'), blank=True, null=True, help_text=_(u'ID of the related object'))
+    content_type = models.ForeignKey(ContentType, verbose_name=_('content type'), blank=True, null=True, help_text=_('Type of the related object'))
+    object_id = models.IntegerField(_('object id'), blank=True, null=True, help_text=_('ID of the related object'))
     content_object = GenericForeignKey('content_type', 'object_id')
 
     class Meta:
@@ -63,7 +65,7 @@ class Event(BASE_CLASS):
         verbose_name_plural = _('events')
         ordering = ('title', )
         permissions = [
-            ('view_event', _(u'Can view event')),
+            ('view_event', _('Can view event')),
         ]
 
     def __unicode__(self):
@@ -179,9 +181,9 @@ class Occurrence(BASE_CLASS):
     Represents the start end time for a specific occurrence of a master ``Event``
     object.
     """
-    start_time = models.DateTimeField(_('start time'), help_text=_(u'-'))
-    end_time = models.DateTimeField(_('end time'), help_text=_(u'-'))
-    event = models.ForeignKey(Event, verbose_name=_('event'), editable=False, help_text=_(u'-'))
+    start_time = models.DateTimeField(_('start time'), help_text=_('-'))
+    end_time = models.DateTimeField(_('end time'), help_text=_('-'))
+    event = models.ForeignKey(Event, verbose_name=_('event'), editable=False, help_text=_('-'))
 
     objects = OccurrenceManager()
 
@@ -190,7 +192,7 @@ class Occurrence(BASE_CLASS):
         verbose_name_plural = _('occurrences')
         ordering = ('start_time', 'end_time')
         permissions = [
-            ('view_occurrence', _(u'Can view occurrence')),
+            ('view_occurrence', _('Can view occurrence')),
         ]
 
     def __unicode__(self):
@@ -317,7 +319,7 @@ def update_event(sender, **kwargs):
     Such a dict looks like
     {
     'title'          : self.title,     # unicode, required
-    'event_type'     : ('generic', _(u'Generic event')), # EventType, default as shown
+    'event_type'     : ('generic', _('Generic event')), # EventType, default as shown
     'description'    : self.text,      # unicode, defaults to ''
     'start_time'     : self.starttime, # datetime, defaults to now
     'end_time'       : self.endtime,   # datetime, defaults to now
@@ -340,7 +342,7 @@ def update_event(sender, **kwargs):
     for info in infos:
         i = {
              'title': '',
-             'event_type': ('generic', _(u'Generic event')),
+             'event_type': ('generic', _('Generic event')),
              'description': '',
              'start_time': timezone.now(),
              'end_time': timezone.now(),

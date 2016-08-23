@@ -223,7 +223,7 @@ def create_timeslot_table(dt=None, items=None,
             if not proxy.event_class and column_classes and proxy.event_type:
                 proxy.event_class = column_classes[colkey][proxy.event_type.code]()
         if rowkey == wholedaytime:
-            rowkey = _(u'whole day')
+            rowkey = _('whole day')
         else:
             rowkey = rowkey.strftime('%H:%M')
         table.append((rowkey, cols))

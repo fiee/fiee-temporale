@@ -1,6 +1,8 @@
 """
 Convenience forms for adding and updating ``Event``s and ``Occurrence``s.
 """
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from datetime import datetime, date, time, timedelta
 
 from django import forms
@@ -17,74 +19,74 @@ from dorsale.forms import DorsaleBaseModelForm
 from dorsale.widgets import DatePickerWidget
 
 WEEKDAY_SHORT = (
-    (7, _(u'Sun')),
-    (1, _(u'Mon')),
-    (2, _(u'Tue')),
-    (3, _(u'Wed')),
-    (4, _(u'Thu')),
-    (5, _(u'Fri')),
-    (6, _(u'Sat'))
+    (7, _('Sun')),
+    (1, _('Mon')),
+    (2, _('Tue')),
+    (3, _('Wed')),
+    (4, _('Thu')),
+    (5, _('Fri')),
+    (6, _('Sat'))
 )
 
 WEEKDAY_LONG = (
-    (7, _(u'Sunday')),
-    (1, _(u'Monday')),
-    (2, _(u'Tuesday')),
-    (3, _(u'Wednesday')),
-    (4, _(u'Thursday')),
-    (5, _(u'Friday')),
-    (6, _(u'Saturday'))
+    (7, _('Sunday')),
+    (1, _('Monday')),
+    (2, _('Tuesday')),
+    (3, _('Wednesday')),
+    (4, _('Thursday')),
+    (5, _('Friday')),
+    (6, _('Saturday'))
 )
 
 MONTH_LONG = (
-    (1,  _(u'January')),
-    (2,  _(u'February')),
-    (3,  _(u'March')),
-    (4,  _(u'April')),
-    (5,  _(u'May')),
-    (6,  _(u'June')),
-    (7,  _(u'July')),
-    (8,  _(u'August')),
-    (9,  _(u'September')),
-    (10, _(u'October')),
-    (11, _(u'November')),
-    (12, _(u'December')),
+    (1,  _('January')),
+    (2,  _('February')),
+    (3,  _('March')),
+    (4,  _('April')),
+    (5,  _('May')),
+    (6,  _('June')),
+    (7,  _('July')),
+    (8,  _('August')),
+    (9,  _('September')),
+    (10, _('October')),
+    (11, _('November')),
+    (12, _('December')),
 )
 
 MONTH_SHORT = (
-    (1,  _(u'Jan')),
-    (2,  _(u'Feb')),
-    (3,  _(u'Mar')),
-    (4,  _(u'Apr')),
-    (5,  _(u'May')),
-    (6,  _(u'Jun')),
-    (7,  _(u'Jul')),
-    (8,  _(u'Aug')),
-    (9,  _(u'Sep')),
-    (10, _(u'Oct')),
-    (11, _(u'Nov')),
-    (12, _(u'Dec')),
+    (1,  _('Jan')),
+    (2,  _('Feb')),
+    (3,  _('Mar')),
+    (4,  _('Apr')),
+    (5,  _('May')),
+    (6,  _('Jun')),
+    (7,  _('Jul')),
+    (8,  _('Aug')),
+    (9,  _('Sep')),
+    (10, _('Oct')),
+    (11, _('Nov')),
+    (12, _('Dec')),
 )
 
 
 ORDINAL = (
-    (1,  _(u'first')),
-    (2,  _(u'second')),
-    (3,  _(u'third')),
-    (4,  _(u'fourth')),
-    (-1, _(u'last'))
+    (1,  _('first')),
+    (2,  _('second')),
+    (3,  _('third')),
+    (4,  _('fourth')),
+    (-1, _('last'))
 )
 
 FREQUENCY_CHOICES = (
-    (rrule.DAILY,   _(u'Day(s)')),
-    (rrule.WEEKLY,  _(u'Week(s)')),
-    (rrule.MONTHLY, _(u'Month(s)')),
-    (rrule.YEARLY,  _(u'Year(s)')),
+    (rrule.DAILY,   _('Day(s)')),
+    (rrule.WEEKLY,  _('Week(s)')),
+    (rrule.MONTHLY, _('Month(s)')),
+    (rrule.YEARLY,  _('Year(s)')),
 )
 
 REPEAT_CHOICES = (
-    ('count', _(u'By count')),
-    ('until', _(u'Until date')),
+    ('count', _('By count')),
+    ('until', _('Until date')),
 )
 
 ISO_WEEKDAYS_MAP = (
@@ -194,113 +196,113 @@ class MultipleIntegerField(forms.MultipleChoiceField):
 
 class MultipleOccurrenceForm(forms.Form):
     day = forms.DateField(
-        label=_(u'Date'),
+        label=_('Date'),
         initial=date.today,
         widget=DatePickerWidget(),
         localize=True,
     )
-    day.help_text = _(u'-')
+    day.help_text = _('-')
 
     start_time_delta = forms.IntegerField(
-        label=_(u'Start time'),
+        label=_('Start time'),
         widget=forms.Select(choices=default_timeslot_offset_options)
     )
-    start_time_delta.help_text = _(u'-')
+    start_time_delta.help_text = _('-')
 
     end_time_delta = forms.IntegerField(
-        label=_(u'End time'),
+        label=_('End time'),
         widget=forms.Select(choices=default_timeslot_offset_options)
     )
-    end_time_delta.help_text = _(u'-')
+    end_time_delta.help_text = _('-')
 
     # recurrence options
     repeats = forms.ChoiceField(
         choices=REPEAT_CHOICES,
         initial='count',
-        label=_(u'Occurrences'),
+        label=_('Occurrences'),
         widget=forms.RadioSelect(),
         localize=True,
     )
-    repeats.help_text = _(u'-')
+    repeats.help_text = _('-')
 
     count = forms.IntegerField(
-        label=_(u'Total Occurrences'),
+        label=_('Total Occurrences'),
         initial=1,
         required=False,
         widget=forms.TextInput(attrs=dict(size=2, max_length=2))
     )
-    repeats.help_text = _(u'-')
+    repeats.help_text = _('-')
 
     until = forms.DateField(
-        label=_(u'until'),
+        label=_('until'),
         required=False,
         initial=date.today,
         widget=DatePickerWidget(),
         localize=True,
     )
-    until.help_text = _(u'-')
+    until.help_text = _('-')
 
     freq = forms.IntegerField(
-        label=_(u'Frequency'),
+        label=_('Frequency'),
         initial=rrule.WEEKLY,
         widget=forms.RadioSelect(choices=FREQUENCY_CHOICES),
     )
-    repeats.help_text = _(u'-')
+    repeats.help_text = _('-')
 
     interval = forms.IntegerField(
-        label=_(u'Interval'),
+        label=_('Interval'),
         required=False,
         initial='1',
         widget=forms.TextInput(attrs=dict(size=3, max_length=3))
     )
-    interval.help_text = _(u'-')
+    interval.help_text = _('-')
 
     # weekly options
     week_days = MultipleIntegerField(
         WEEKDAY_SHORT,
-        label=_(u'Weekly options'),
+        label=_('Weekly options'),
         widget=forms.CheckboxSelectMultiple
     )
-    week_days.help_text = _(u'-')
+    week_days.help_text = _('-')
 
     # monthly  options
     month_option = forms.ChoiceField(
-        choices=(('on',_(u'On the')), ('each',_(u'Each:'))),
+        choices=(('on',_('On the')), ('each',_('Each:'))),
         initial='each',
         widget=forms.RadioSelect(),
-        label=_(u'Monthly options'),
+        label=_('Monthly options'),
         localize=True,
     )
-    month_option.help_text = _(u'-')
+    month_option.help_text = _('-')
 
     month_ordinal = forms.IntegerField(
         widget=forms.Select(choices=ORDINAL),
     )
-    month_ordinal.help_text = _(u'-')
+    month_ordinal.help_text = _('-')
     month_ordinal_day = forms.IntegerField(
         widget=forms.Select(choices=WEEKDAY_LONG),
     )
-    month_ordinal_day.help_text = _(u'-')
+    month_ordinal_day.help_text = _('-')
     each_month_day = MultipleIntegerField(
         [(i,i) for i in range(1,32)],
         widget=forms.CheckboxSelectMultiple,
     )
-    each_month_day.help_text = _(u'-')
+    each_month_day.help_text = _('-')
 
     # yearly options
     year_months = MultipleIntegerField(
         MONTH_SHORT,
-        label=_(u'Yearly options'),
+        label=_('Yearly options'),
         widget=forms.CheckboxSelectMultiple,
     )
-    year_months.help_text = _(u'-')
+    year_months.help_text = _('-')
 
     is_year_month_ordinal = forms.BooleanField(required=False)
-    is_year_month_ordinal.help_text = _(u'-')
+    is_year_month_ordinal.help_text = _('-')
     year_month_ordinal = forms.IntegerField(widget=forms.Select(choices=ORDINAL))
-    year_month_ordinal.help_text = _(u'-')
+    year_month_ordinal.help_text = _('-')
     year_month_ordinal_day = forms.IntegerField(widget=forms.Select(choices=WEEKDAY_LONG))
-    year_month_ordinal_day.help_text = _(u'-')
+    year_month_ordinal_day.help_text = _('-')
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
@@ -390,7 +392,7 @@ class MultipleOccurrenceForm(forms.Form):
                 params['byweekday'] = day(ordinal)
 
         elif params['freq'] != rrule.DAILY:
-            raise NotImplementedError(_(u'Unknown interval rule %s') % params['freq'])
+            raise NotImplementedError(_('Unknown interval rule %s') % params['freq'])
 
         return params
 
@@ -418,10 +420,10 @@ class SingleOccurrenceForm(DorsaleBaseModelForm):
     Required keyword parameter: `user`
     """
 
-    start_time = forms.DateTimeField(widget=SplitDateTimeWidget, localize=True, label=_(u'start time'))
-    start_time.help_text = _(u'-')
-    end_time = forms.DateTimeField(widget=SplitDateTimeWidget, localize=True, label=_(u'end time'))
-    end_time.help_text = _(u'-')
+    start_time = forms.DateTimeField(widget=SplitDateTimeWidget, localize=True, label=_('start time'))
+    start_time.help_text = _('-')
+    end_time = forms.DateTimeField(widget=SplitDateTimeWidget, localize=True, label=_('end time'))
+    end_time.help_text = _('-')
 
     class Meta:
         model = Occurrence

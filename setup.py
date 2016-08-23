@@ -1,11 +1,11 @@
-#!/usr/bin/env python
 # -*- coding:utf-8 -*-
+from __future__ import unicode_literals
 from setuptools import setup, find_packages
 import os
 
 setup(name='fiee-temporale',
-      version='0.0.7',
-      description=u'Generic events for your django models',
+      version='0.0.8',
+      description='Generic events for your django models',
       keywords='event date calendar generic attachment',
       author='Henning Hraban Ramm',
       author_email='hraban@fiee.net',
@@ -28,6 +28,6 @@ setup(name='fiee-temporale',
                    'Topic :: Utilities',
                    'Natural Language :: English',
                    'Natural Language :: German',],
-      install_requires=['Django>=1.8', 'vobject', 'django-registration>=2', 'fiee-dorsale>=0.1.0',],
+      install_requires=['Django>=1.8', 'vobject', 'django-registration>=2', 'fiee-dorsale>=0.1.2',],
       zip_safe=False,
       )
