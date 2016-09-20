@@ -1,6 +1,6 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
-urlpatterns = patterns('temporale',
+urlpatterns = [
     url(r'^(?:calendar/)?$',
         'views.today_view',
         name='temporale-today'),
@@ -39,4 +39,4 @@ urlpatterns = patterns('temporale',
     url(r'^vcal/$',
         'vcal.events_as_vcal',
         name='temporale-vcal'),
-)
+]
