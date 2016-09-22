@@ -10,8 +10,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from django.template.context import RequestContext
-from django.shortcuts import get_object_or_404, render_to_response
+from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
 from dorsale.tools import class_from_name
@@ -53,9 +52,10 @@ def event_listing(request, template='temporale/event_list.html', events=None,
     elif hasattr(events, '_clone'):
         events = events._clone()
 
-    return render_to_response(template,
-        dict(extra_context, events=events),
-        context_instance=RequestContext(request))
+    return render(
+        request,
+        template,
+        dict(extra_context, events=events))
 
 
 @login_required
@@ -114,15 +114,16 @@ def event_view(request, pk, template='temporale/event_detail.html',
             user=request.user)
         )
 
-    return render_to_response(template,
+    return render(
+        request,
+        template,
         dict(
              event=event,
              event_form=event_form,
              recurrence_form=recurrence_form,
              notes=event.notes.all(),
              item=event,
-             item_type=event_type),
-        context_instance=RequestContext(request))
+             item_type=event_type))
 
 
 @login_required
@@ -160,14 +161,15 @@ def occurrence_view(request, event_pk, pk,
     else:
         form = form_class(instance=occurrence, user=request.user)
 
-    return render_to_response(template,
+    return render(
+        request,
+        template,
         dict(
              occurrence=occurrence,
              form=form,
              notes=occurrence.notes.all(),
              item=occurrence,
-             item_type=occurrence_type),
-        context_instance=RequestContext(request))
+             item_type=occurrence_type))
 
 
 @login_required
@@ -211,9 +213,10 @@ def add_event(request, template='temporale/add_event.html',
         recurrence_form = recurrence_form_class(
             initial=dict(dtstart=dtstart), user=request.user)
 
-    return render_to_response(template,
-        dict(dtstart=dtstart, event_form=event_form, recurrence_form=recurrence_form),
-        context_instance=RequestContext(request))
+    return render(
+        request,
+        template,
+        dict(dtstart=dtstart, event_form=event_form, recurrence_form=recurrence_form))
 
 
 def _datetime_view(request, template, dt, timeslot_factory=None, items=None, params=None):
@@ -245,8 +248,7 @@ def _datetime_view(request, template, dt, timeslot_factory=None, items=None, par
         timeslots=timeslot_factory(dt, items, **params)
     )
 
-    return render_to_response(template, data,
-        context_instance=RequestContext(request))
+    return render(request, template, data)
 
 
 def day_view(request, year, month, day, template='temporale/daily_view.html', **params):
@@ -304,9 +306,8 @@ def year_view(request, year, template='temporale/yearly_view.html', queryset=Non
         for dt,items in itertools.groupby(occurrences, grouper_key)
     ]
 
-    return render_to_response(template,
-        dict(year=year, by_month=by_month, next_year=year + 1, last_year=year - 1),
-        context_instance=RequestContext(request))
+    return render(request, template,
+        dict(year=year, by_month=by_month, next_year=year + 1, last_year=year - 1))
 
 
 def month_view(request, year, month, template='temporale/monthly_view.html', queryset=None):
@@ -370,5 +371,4 @@ def month_view(request, year, month, template='temporale/monthly_view.html', que
         last_month=dtstart + timedelta(days=-1),
     )
 
-    return render_to_response(template, data,
-        context_instance=RequestContext(request))
+    return render(request, template, data)
