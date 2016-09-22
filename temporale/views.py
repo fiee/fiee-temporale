@@ -18,7 +18,7 @@ from dorsale.tools import class_from_name
 from temporale.models import Event, Occurrence
 from temporale import utils, forms
 # from temporale.conf import settings as temporale_settings
-from .settings import (USE_ADHESIVE, FIRST_DAY_OF_WEEK, CALENDAR_FIRST_WEEKDAY)
+from temporale.settings import (USE_ADHESIVE, FIRST_DAY_OF_WEEK, CALENDAR_FIRST_WEEKDAY)
 
 if USE_ADHESIVE:
     note_model = class_from_name('adhesive.models.Note')

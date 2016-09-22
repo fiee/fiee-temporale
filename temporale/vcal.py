@@ -5,6 +5,7 @@ from django.http import HttpResponse
 
 from temporale.models import Event
 
+
 @login_required
 def events_as_vcal(request, events=None, **kwargs):
     """
