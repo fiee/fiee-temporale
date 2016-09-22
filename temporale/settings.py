@@ -8,7 +8,7 @@ from subprocess import check_call, CalledProcessError
 PROJECT_NAME = getattr(settings, 'PROJECT_NAME', 'temporale')
 
 # base manager for temporale Models
-MANAGER = getattr(settings, 'TEMPORALE_MANAGER', 'dorsale.managers.DorsaleSiteManager')
+MANAGER = getattr(settings, 'TEMPORALE_MANAGER', 'dorsale.managers.DorsaleFakeManager')
 
 # parent class of temporale Models (descendand of django.models.Model)
 BASE_CLASS = getattr(settings, 'TEMPORALE_BASE_CLASS', 'adhesive.models.DorsaleAnnotatedBaseModel')
