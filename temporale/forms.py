@@ -10,7 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 #from django.forms.extras.widgets import SelectDateWidget
 
 from dateutil import rrule
-from temporale.conf import settings as temporale_settings
+from temporale import settings as temporale_settings
 from temporale import utils
 from temporale.models import Event, Occurrence
 
@@ -427,4 +427,4 @@ class SingleOccurrenceForm(DorsaleBaseModelForm):
 
     class Meta:
         model = Occurrence
-        fields = ['start_time', 'end_time', ] # 'event', 
+        fields = ['start_time', 'end_time', ] # 'event',

@@ -266,7 +266,7 @@ def create_event(title, event_type, description='', start_time=None,
     ``freq``, ``count``, ``rrule_params``
         follow the ``dateutils`` API (see http://labix.org/python-dateutil)
     """
-    from temporale.conf import settings as temporale_settings
+    from temporale import settings as temporale_settings
 
     model_type = ContentType.objects.get_for_model(content_object)
 

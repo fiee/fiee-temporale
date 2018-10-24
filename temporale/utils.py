@@ -9,7 +9,7 @@ from django.db.models.query import QuerySet
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 #from dateutil import rrule
-from temporale.conf import settings as temporale_settings
+from temporale import settings as temporale_settings
 from temporale.models import Occurrence
 
 from django.utils import timezone
@@ -51,7 +51,7 @@ def month_boundaries(dt=None):
 
 def css_class_cycler():
     """
-    Return a dictionary keyed by ``EventType`` code, 
+    Return a dictionary keyed by ``EventType`` code,
     whose values are an iterable or cycle of CSS class names.
     """
     from temporale.models import EventType
@@ -156,7 +156,7 @@ def create_timeslot_table(dt=None, items=None,
             # events outside of our schedule constraints
             logger.debug("excluding %s", item)
             continue
-        
+
         if item.wholeday():
             # whole day events
             rowkey = current = wholedaytime
@@ -183,7 +183,7 @@ def create_timeslot_table(dt=None, items=None,
             if colkey not in timeslot:
                 proxy = proxy_class(item, colkey)
                 timeslot[colkey] = proxy
-                
+
                 if item.wholeday():
                     break
 

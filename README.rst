@@ -164,6 +164,10 @@ TEMPORALE_CALENDAR_FIRST_WEEKDAY : int
 FIRST_DAY_OF_WEEK : int
     Same as TEMPORALE_CALENDAR_FIRST_WEEKDAY, inherits from the former.
 
+EDITION_USE_TEMPORALE : bool
+    If you use this with fiëé édition, set this to True to get publishing dates
+    into your calendar.
+
 
 License
 -------
